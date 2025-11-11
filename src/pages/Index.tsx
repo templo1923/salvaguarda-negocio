@@ -6,14 +6,14 @@ import Header from "@/components/Header";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import RequirementItem from "@/components/RequirementItem";
 import heroImage from "@/assets/hero-lawyer.jpg";
-// Se elimina sealedImage ya que el video lo reemplaza
+import sealedImage from "@/assets/sealed-business.jpg";
 import attorneyPhoto from "@/assets/attorney-photo.jpg";
-import inspectionImage from "@/assets/inspection.jpg"; // Se usa como miniatura (poster)
+import inspectionImage from "@/assets/inspection.jpg";
 
 // --- CAMBIO: Se actualizan los datos para generar confianza ---
 // ⚠️ CONFIGURACIÓN - ¡RECUERDA CAMBIAR EL WHATSAPP_NUMBER!
 const WHATSAPP_NUMBER = "573XXXXXXXXX"; // 👈 ¡REEMPLAZA ESTE NÚMERO!
-const ATTORNEY_NAME = "Dr. Juan Pérez m";
+const ATTORNEY_NAME = "Dr. Juan Pérez";
 const YEARS_EXPERIENCE = "12";
 const ADDRESS = "Oficina 301, C.C. Parque Bello";
 const EMAIL = "dr.juanperez@abogadosbello.com";
@@ -116,7 +116,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Problem Section - El Riesgo (MODIFICADA) */}
+      {/* Problem Section - El Riesgo */}
       <section className="py-16 md:py-24 bg-secondary">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
@@ -127,32 +127,53 @@ const Index = () => {
               <p className="text-lg md:text-xl text-foreground/80 max-w-3xl mx-auto">
                 La Alcaldía está realizando operativos sorpresa en Bello (ej. Niquía).{" "}
                 <span className="font-semibold text-destructive">
-                  Un solo documento faltante puede significar el cierre temporal de tu establecimiento.
+                  Un solo documento faltante puede significar el cierre temporal de tu establecimiento,
+                  multas y la pérdida de tus ventas.
                 </span>
               </p>
             </div>
 
-            {/* --- CAMBIO: Nueva cuadrícula lógica (Video + Alerta) --- */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+            <h3 className="text-2xl font-bold text-center text-foreground mb-8">
+              No dejes que esto te pase:
+            </h3>
+
+            {/* --- CAMBIO: Reorganización de la cuadrícula --- */}
+            <div className="grid md:grid-cols-3 gap-6 items-start">
               
-              {/* Columna de Video (ocupa 2 de 3 columnas en desktop) */}
-              <div className="lg:col-span-2 bg-black rounded-lg overflow-hidden shadow-xl border border-border">
+              {/* Columna 1: Video */}
+              <Card className="overflow-hidden shadow-lg">
                 <video
-                  className="w-full h-full" // <-- Se quita h-64 y object-cover
+                  className="w-full h-auto" // <-- Se quita h-64 y object-cover
                   autoPlay
                   muted
                   loop
                   playsInline
-                  controls // Se mantienen controles por si el usuario quiere pausar
-                  poster={inspectionImage} // Usamos la otra imagen de 'poster'
+                  controls
+                  poster={sealedImage} // Usamos la imagen del negocio sellado como poster
                   preload="auto"
                 >
                   <source src="https://res.cloudinary.com/dz9ktwtyo/video/upload/v1762886362/operativo-niquia_vocctj.mp4" type="video/mp4" />
                   Tu navegador no soporta el video.
                 </video>
-              </div>
+                <div className="p-4 bg-card">
+                  <p className="font-semibold text-center text-foreground">Operativos reales en Bello</p>
+                </div>
+              </Card>
 
-              {/* Columna de Alerta (ocupa 1 de 3 columnas en desktop) */}
+              {/* Columna 2: Imagen Inspección */}
+              <Card className="overflow-hidden shadow-lg">
+                <img
+                  src={inspectionImage}
+                  alt="Inspector revisando documentos"
+                  className="w-full h-auto aspect-video object-cover" // <-- Se usa aspect-video para mantener proporción
+                  loading="lazy"
+                />
+                <div className="p-4 bg-card">
+                  <p className="font-semibold text-center text-foreground">Revisión de documentos</p>
+                </div>
+              </Card>
+
+              {/* Columna 3: Alerta */}
               <Card className="p-6 flex flex-col justify-center bg-destructive/10 border-destructive/20 h-full">
                 <AlertTriangle className="text-destructive mb-4" size={48} />
                 <h4 className="text-xl font-bold text-foreground mb-2">
@@ -172,8 +193,6 @@ const Index = () => {
                   ¡Necesito ayuda urgente!
                 </Button>
               </Card>
-
-              {/* La imagen duplicada de "inspectionImage" se ha eliminado */}
             </div>
           </div>
         </div>

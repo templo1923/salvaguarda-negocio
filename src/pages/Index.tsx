@@ -7,9 +7,10 @@ import Header from "../components/Header";
 import WhatsAppFloat from "../components/WhatsAppFloat";
 import RequirementItem from "../components/RequirementItem";
 import heroImage from "../assets/hero-lawyer.jpg";
-import sealedImage from "../assets/sealed-business.jpg";
+// --- CAMBIO 1: Se importa el video y se elimina 'sealedImage' ---
+import operativoNiquiaVideo from "../assets/operativo-niquia.mp4";
 import attorneyPhoto from "../assets/attorney-photo.jpg";
-import inspectionImage from "../assets/inspection.jpg";
+import inspectionImage from "../assets/inspection.jpg"; // Se mantiene para usar como 'poster'
 
 // ⚠️ CONFIGURACIÓN - Reemplazar estos valores con los datos reales
 const WHATSAPP_NUMBER = "573XXXXXXXXX"; // Reemplazar con el número real sin espacios ni símbolos
@@ -118,7 +119,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Problem Section - El Riesgo */}
+      {/* --- CAMBIO 2: SECCIÓN DE "EL RIESGO" MODIFICADA --- */}
       <section className="py-16 md:py-24 bg-secondary">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
@@ -136,42 +137,50 @@ const Index = () => {
             </div>
 
             <h3 className="text-2xl font-bold text-center text-foreground mb-8">
-              ¿Tienes todo en regla?
+              Mira lo que está pasando AHORA en Bello:
             </h3>
 
-            <div className="grid md:grid-cols-3 gap-6">
-              <Card className="overflow-hidden">
-                <img
-                  src={sealedImage}
-                  alt="Negocio sellado por la alcaldía"
-                  className="w-full h-64 object-cover"
+            <div className="grid lg:grid-cols-3 gap-6 items-start">
+              {/* Video Player */}
+              <div className="lg:col-span-2 bg-black rounded-lg overflow-hidden shadow-xl border border-border">
+                <video
+                  className="w-full h-full object-cover"
+                  controls
+                  preload="metadata"
+                  playsInline
                   loading="lazy"
-                />
-              </Card>
-              <Card className="overflow-hidden">
-                <img
-                  src={inspectionImage}
-                  alt="Inspector revisando documentos"
-                  className="w-full h-64 object-cover"
-                  loading="lazy"
-                />
-              </Card>
-              <Card className="p-6 flex flex-col justify-center bg-destructive/10 border-destructive/20">
+                  poster={inspectionImage} // Usamos la foto de la inspección como miniatura
+                >
+                  <source src={operativoNiquiaVideo} type="video/mp4" />
+                  Tu navegador no soporta el video.
+                </video>
+              </div>
+
+              {/* Tarjeta de Alerta */}
+              <Card className="p-6 flex flex-col justify-center bg-destructive/10 border-destructive/20 h-full">
                 <AlertTriangle className="text-destructive mb-4" size={48} />
                 <h4 className="text-xl font-bold text-foreground mb-2">
                   No Arriesgues Tu Inversión
                 </h4>
-                {/* --- MEJORA DE COPY --- */}
-                {/* "Cientos" es más creíble y menos genérico que "Miles" */}
-                <p className="text-foreground/70">
-                  Cientos de comerciantes en Bello han enfrentado sanciones por documentación incompleta.
+                <p className="text-foreground/70 mb-6">
+                  Cientos de comerciantes en Bello ya han enfrentado sanciones por documentación incompleta.
                   No seas el siguiente.
                 </p>
+                <Button
+                  onClick={openWhatsApp}
+                  variant="destructive"
+                  className="font-semibold w-full"
+                >
+                  <AlertTriangle className="mr-2 h-4 w-4" />
+                  ¡Necesito ayuda urgente!
+                </Button>
               </Card>
             </div>
           </div>
         </div>
       </section>
+      {/* --- FIN DE LA SECCIÓN MODIFICADA --- */}
+
 
       {/* Solution Section - Los 8 Requisitos */}
       <section id="requisitos" className="py-16 md:py-24 bg-background">

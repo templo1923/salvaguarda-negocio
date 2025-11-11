@@ -1,13 +1,15 @@
-import { Shield, FileCheck, Clock, Phone, Mail, MapPin, AlertTriangle } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import Header from "@/components/Header";
-import WhatsAppFloat from "@/components/WhatsAppFloat";
-import RequirementItem from "@/components/RequirementItem";
-import heroImage from "@/assets/hero-lawyer.jpg";
-import sealedImage from "@/assets/sealed-business.jpg";
-import attorneyPhoto from "@/assets/attorney-photo.jpg";
-import inspectionImage from "@/assets/inspection.jpg";
+import { Shield, FileCheck, Clock, Phone, Mail, MapPin, AlertTriangle, Search, FileSignature, ShieldCheck } from "lucide-react";
+// --- AJUSTE DE RUTAS ---
+// Se cambian los alias "@/" por rutas relativas "../"
+import { Button } from "../components/ui/button";
+import { Card } from "../components/ui/card";
+import Header from "../components/Header";
+import WhatsAppFloat from "../components/WhatsAppFloat";
+import RequirementItem from "../components/RequirementItem";
+import heroImage from "../assets/hero-lawyer.jpg";
+import sealedImage from "../assets/sealed-business.jpg";
+import attorneyPhoto from "../assets/attorney-photo.jpg";
+import inspectionImage from "../assets/inspection.jpg";
 
 // ⚠️ CONFIGURACIÓN - Reemplazar estos valores con los datos reales
 const WHATSAPP_NUMBER = "573XXXXXXXXX"; // Reemplazar con el número real sin espacios ni símbolos
@@ -18,8 +20,11 @@ const EMAIL = "contacto@ejemplo.com"; // Reemplazar con email real
 
 const Index = () => {
   const openWhatsApp = () => {
+    // --- MEJORA DE COPY ---
+    // Mensaje más simple. Un cliente asustado no llenará campos.
+    // Solo necesita enviar el primer mensaje.
     const message = encodeURIComponent(
-      "Hola, soy [NOMBRE_CLIENTE] propietario de [NOMBRE_DEL_LOCAL] en Bello. Recibí/temo una visita/inspección y necesito asesoría urgente para evitar el sellado. Gracias."
+      "Hola, necesito asesoría legal urgente para mi negocio en Bello."
     );
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
     window.open(url, "_blank", "noopener,noreferrer");
@@ -96,8 +101,12 @@ const Index = () => {
               <Button
                 size="lg"
                 onClick={openWhatsApp}
-                className="bg-whatsapp hover:bg-whatsapp-hover text-white font-bold text-lg px-8 py-6 shadow-xl hover:shadow-2xl transition-all duration-300"
+                // --- MEJORA DE ESTILO ---
+                // Usar la variante "whatsapp" definida en button.tsx en lugar de clases manuales
+                variant="whatsapp"
+                className="font-bold text-lg px-8 py-6 transition-all duration-300"
               >
+                <Phone className="mr-2 h-5 w-5" />
                 ¡QUIERO MI ASESORÍA AHORA!
               </Button>
             </div>
@@ -152,8 +161,10 @@ const Index = () => {
                 <h4 className="text-xl font-bold text-foreground mb-2">
                   No Arriesgues Tu Inversión
                 </h4>
+                {/* --- MEJORA DE COPY --- */}
+                {/* "Cientos" es más creíble y menos genérico que "Miles" */}
                 <p className="text-foreground/70">
-                  Miles de comerciantes en Bello han enfrentado sanciones por documentación incompleta.
+                  Cientos de comerciantes en Bello han enfrentado sanciones por documentación incompleta.
                   No seas el siguiente.
                 </p>
               </Card>
@@ -194,42 +205,47 @@ const Index = () => {
 
             <div className="grid md:grid-cols-3 gap-8">
               <Card className="p-8 text-center">
+                {/* --- MEJORA VISUAL --- */}
                 <div className="w-16 h-16 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
-                  1
+                  <Search className="h-8 w-8" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">Contáctanos por WhatsApp</h3>
+                <h3 className="text-xl font-bold text-foreground mb-3">1. Contáctanos por WhatsApp</h3>
                 <p className="text-muted-foreground">
                   Haz clic y envíanos un mensaje. La consulta inicial es rápida.
                 </p>
               </Card>
 
               <Card className="p-8 text-center">
+                {/* --- MEJORA VISUAL --- */}
                 <div className="w-16 h-16 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
-                  2
+                  <FileSignature className="h-8 w-8" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">Auditamos tu Caso</h3>
+                <h3 className="text-xl font-bold text-foreground mb-3">2. Auditamos tu Caso</h3>
                 <p className="text-muted-foreground">
                   Revisamos qué documentos tienes y cuáles faltan.
                 </p>
               </Card>
 
               <Card className="p-8 text-center">
+                {/* --- MEJORA VISUAL --- */}
                 <div className="w-16 h-16 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
-                  3
+                  <ShieldCheck className="h-8 w-8" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">Gestionamos y Entregamos</h3>
+                <h3 className="text-xl font-bold text-foreground mb-3">3. Gestionamos y Entregamos</h3>
                 <p className="text-muted-foreground">
                   Nos movemos rápido para obtener tus permisos y que puedas trabajar sin miedo.
                 </p>
               </Card>
             </div>
 
-            <div className="text-center mt-8">
+            <div className="text-center mt-12">
               <Button
                 onClick={openWhatsApp}
                 size="lg"
-                className="bg-whatsapp hover:bg-whatsapp-hover text-white font-semibold"
+                variant="whatsapp"
+                className="font-semibold"
               >
+                <Phone className="mr-2 h-5 w-5" />
                 Enviar mensaje ahora
               </Button>
             </div>
@@ -296,8 +312,10 @@ const Index = () => {
             <Button
               size="lg"
               onClick={openWhatsApp}
-              className="bg-whatsapp hover:bg-whatsapp-hover text-white font-bold text-lg px-8 py-6 shadow-xl hover:shadow-2xl transition-all duration-300"
+              variant="whatsapp"
+              className="font-bold text-lg px-8 py-6 transition-all duration-300"
             >
+              <Phone className="mr-2 h-5 w-5" />
               HABLAR CON EL ABOGADO AHORA
             </Button>
             <p className="text-white/80 text-sm md:text-base">
@@ -328,7 +346,9 @@ const Index = () => {
                 </p>
                 <p className="flex items-center gap-2">
                   <Phone size={18} />
-                  +57 3XX XXX XXXX
+                  {/* --- MEJORA DE CONTENIDO --- */}
+                  {/* Usar un placeholder claro para el teléfono */}
+                  +57 [TU NÚMERO DE TELÉFONO]
                 </p>
                 <p className="flex items-center gap-2">
                   <Mail size={18} />

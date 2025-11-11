@@ -125,7 +125,7 @@ const Index = () => {
                 Las Inspecciones Son Reales y las Sanciones También
               </h2>
               <p className="text-lg md:text-xl text-foreground/80 max-w-3xl mx-auto">
-                La Alcaldía está realizando operativos sorpresa en Bello.{" "}
+                La Alcaldía está realizando operativos sorpresa en Bello (ej. Niquía).{" "}
                 <span className="font-semibold text-destructive">
                   Un solo documento faltante puede significar el cierre temporal de tu establecimiento,
                   multas y la pérdida de tus ventas.
@@ -138,48 +138,51 @@ const Index = () => {
             </h3>
 
             {/* --- CAMBIO: Reorganización de la cuadrícula --- */}
-            <div className="grid md:grid-cols-3 gap-6 items-start">
+            <div className="grid md:grid-cols-3 gap-6 items-stretch"> {/* <-- CAMBIO: items-stretch */}
               
               {/* Columna 1: Video */}
-              <Card className="overflow-hidden shadow-lg">
-                <video
-                  className="w-full h-auto" // <-- Se quita h-64 y object-cover
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  controls
-                  poster={sealedImage} // Usamos la imagen del negocio sellado como poster
-                  preload="auto"
-                >
-                  <source src="https://res.cloudinary.com/dz9ktwtyo/video/upload/v1762886362/operativo-niquia_vocctj.mp4" type="video/mp4" />
-                  Tu navegador no soporta el video.
-                </video>
+              <Card className="overflow-hidden shadow-lg flex flex-col"> {/* <-- CAMBIO: flex flex-col */}
+                <div className="flex-1"> {/* <-- CAMBIO: Contenedor para que el video crezca */}
+                  <video
+                    className="w-full h-full object-cover" // <-- CAMBIO: h-full object-cover
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    controls
+                    poster={sealedImage} 
+                    preload="auto"
+                  >
+                    <source src="https://res.cloudinary.com/dz9ktwtyo/video/upload/v1762886362/operativo-niquia_vocctj.mp4" type="video/mp4" />
+                    Tu navegador no soporta el video.
+                  </video>
+                </div>
                 <div className="p-4 bg-card">
                   <p className="font-semibold text-center text-foreground">Operativos reales en Bello</p>
                 </div>
               </Card>
 
               {/* Columna 2: Imagen Inspección */}
-              <Card className="overflow-hidden shadow-lg">
-                <img
-                  src={inspectionImage}
-                  alt="Inspector revisando documentos"
-                  className="w-full h-auto aspect-video object-cover" // <-- Se usa aspect-video para mantener proporción
-                  loading="lazy"
-                />
+              <Card className="overflow-hidden shadow-lg flex flex-col"> {/* <-- CAMBIO: flex flex-col */}
+                <div className="flex-1"> {/* <-- CAMBIO: Contenedor para que la imagen crezca */}
+                  <img
+                    src={inspectionImage}
+                    alt="Inspector revisando documentos"
+                    className="w-full h-full object-cover" // <-- CAMBIO: h-full object-cover
+                    loading="lazy"
+                  />
+                </div>
                 <div className="p-4 bg-card">
                   <p className="font-semibold text-center text-foreground">Revisión de documentos</p>
                 </div>
               </Card>
 
               {/* Columna 3: Alerta */}
-              <Card className="p-6 flex flex-col justify-center bg-destructive/10 border-destructive/20 h-full">
+              <Card className="p-6 flex flex-col justify-center bg-destructive/10 border-destructive/20 h-full"> {/* <-- CAMBIO: h-full y flex-col */}
                 <AlertTriangle className="text-destructive mb-4" size={48} />
                 <h4 className="text-xl font-bold text-foreground mb-2">
                   No Arriesgues Tu Inversión
                 </h4>
-                {/* --- CAMBIO: Copy mejorado (Cientos es más creíble) --- */}
                 <p className="text-foreground/70 mb-6">
                   Cientos de comerciantes en Bello ya han enfrentado sanciones por documentación incompleta.
                   No seas el siguiente.

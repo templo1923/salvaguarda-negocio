@@ -125,7 +125,7 @@ const Index = () => {
                 Las Inspecciones Son Reales y las Sanciones También
               </h2>
               <p className="text-lg md:text-xl text-foreground/80 max-w-3xl mx-auto">
-                La Alcaldía está realizando operativos sorpresa en Bello (ej. Niquía).{" "}
+                La Alcaldía está realizando operativos sorpresa en Bello.{" "}
                 <span className="font-semibold text-destructive">
                   Un solo documento faltante puede significar el cierre temporal de tu establecimiento,
                   multas y la pérdida de tus ventas.

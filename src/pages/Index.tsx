@@ -6,9 +6,9 @@ import Header from "@/components/Header";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import RequirementItem from "@/components/RequirementItem";
 import heroImage from "@/assets/hero-lawyer.jpg";
-import sealedImage from "@/assets/sealed-business.jpg";visi
+// Se elimina sealedImage ya que el video lo reemplaza
 import attorneyPhoto from "@/assets/attorney-photo.jpg";
-import inspectionImage from "@/assets/inspection.jpg";
+import inspectionImage from "@/assets/inspection.jpg"; // Se usa como miniatura (poster)
 
 // --- CAMBIO: Se actualizan los datos para generar confianza ---
 // ⚠️ CONFIGURACIÓN - ¡RECUERDA CAMBIAR EL WHATSAPP_NUMBER!
@@ -116,7 +116,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Problem Section - El Riesgo */}
+      {/* Problem Section - El Riesgo (MODIFICADA) */}
       <section className="py-16 md:py-24 bg-secondary">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
@@ -127,51 +127,53 @@ const Index = () => {
               <p className="text-lg md:text-xl text-foreground/80 max-w-3xl mx-auto">
                 La Alcaldía está realizando operativos sorpresa en Bello (ej. Niquía).{" "}
                 <span className="font-semibold text-destructive">
-                  Un solo documento faltante puede significar el cierre temporal de tu establecimiento,
-                  multas y la pérdida de tus ventas.
+                  Un solo documento faltante puede significar el cierre temporal de tu establecimiento.
                 </span>
               </p>
             </div>
 
-            <h3 className="text-2xl font-bold text-center text-foreground mb-8">
-              ¿Tienes todo en regla?
-            </h3>
-
-            <div className="grid md:grid-cols-3 gap-6">
-              <Card className="overflow-hidden">
+            {/* --- CAMBIO: Nueva cuadrícula lógica (Video + Alerta) --- */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+              
+              {/* Columna de Video (ocupa 2 de 3 columnas en desktop) */}
+              <div className="lg:col-span-2 bg-black rounded-lg overflow-hidden shadow-xl border border-border">
                 <video
-                  className="w-full h-64 object-cover"
+                  className="w-full h-full" // <-- Se quita h-64 y object-cover
                   autoPlay
                   muted
                   loop
                   playsInline
-                  controls
-                  poster={sealedImage}
+                  controls // Se mantienen controles por si el usuario quiere pausar
+                  poster={inspectionImage} // Usamos la otra imagen de 'poster'
                   preload="auto"
                 >
                   <source src="https://res.cloudinary.com/dz9ktwtyo/video/upload/v1762886362/operativo-niquia_vocctj.mp4" type="video/mp4" />
                   Tu navegador no soporta el video.
                 </video>
-              </Card>
-              <Card className="overflow-hidden">
-                <img
-                  src={inspectionImage}
-                  alt="Inspector revisando documentos"
-                  className="w-full h-64 object-cover"
-                  loading="lazy"
-                />
-              </Card>
-              <Card className="p-6 flex flex-col justify-center bg-destructive/10 border-destructive/20">
+              </div>
+
+              {/* Columna de Alerta (ocupa 1 de 3 columnas en desktop) */}
+              <Card className="p-6 flex flex-col justify-center bg-destructive/10 border-destructive/20 h-full">
                 <AlertTriangle className="text-destructive mb-4" size={48} />
                 <h4 className="text-xl font-bold text-foreground mb-2">
                   No Arriesgues Tu Inversión
                 </h4>
                 {/* --- CAMBIO: Copy mejorado (Cientos es más creíble) --- */}
-                <p className="text-foreground/70">
-                  Cientos de comerciantes en Bello han enfrentado sanciones por documentación incompleta.
+                <p className="text-foreground/70 mb-6">
+                  Cientos de comerciantes en Bello ya han enfrentado sanciones por documentación incompleta.
                   No seas el siguiente.
                 </p>
+                <Button
+                  onClick={openWhatsApp}
+                  variant="destructive"
+                  className="font-semibold w-full"
+                >
+                  <AlertTriangle className="mr-2 h-4 w-4" />
+                  ¡Necesito ayuda urgente!
+                </Button>
               </Card>
+
+              {/* La imagen duplicada de "inspectionImage" se ha eliminado */}
             </div>
           </div>
         </div>

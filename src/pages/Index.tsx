@@ -340,7 +340,6 @@ const Index = () => {
             <h2 className="text-3xl md:text-5xl font-bold">
               ¿Vas a esperar a que lleguen a tu local?
             </h2>
-            {/* --- ESTA ES LA LÍNEA QUE FALTABA (343) --- */}
             <p className="text-xl md:text-2xl text-white/90">
               No arriesgues tu inversión y el trabajo de tantos años. Asegura tu tranquilidad hoy
               mismo.

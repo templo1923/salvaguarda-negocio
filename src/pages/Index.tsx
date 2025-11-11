@@ -134,11 +134,14 @@ const Index = () => {
               <Card className="overflow-hidden">
                 <video
                   className="w-full h-64 object-cover"
-                  controls
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
                   poster={sealedImage}
-                  preload="metadata"
+                  preload="auto"
                 >
-                  <source src="https://github.com/templo1923/salvaguarda-negocio/blob/main/src/assets/operativo-niquia.mp4" type="video/mp4" />
+                  <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" />
                   Tu navegador no soporta el video.
                 </video>
               </Card>

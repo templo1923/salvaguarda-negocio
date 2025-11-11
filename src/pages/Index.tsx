@@ -8,7 +8,8 @@ import RequirementItem from "@/components/RequirementItem";
 import heroImage from "@/assets/hero-lawyer.jpg";
 import sealedImage from "@/assets/sealed-business.jpg";
 import attorneyPhoto from "@/assets/attorney-photo.jpg";
-import inspectionImage from "@/assets/inspection.jpg";
+// --- CAMBIO: Se elimina 'inspectionImage' porque usaremos tu GIF/video ---
+// import inspectionImage from "@/assets/inspection.jpg";
 
 // --- CAMBIO: Se actualizan los datos para generar confianza ---
 // ⚠️ CONFIGURACIÓN - ¡RECUERDA CAMBIAR EL WHATSAPP_NUMBER!
@@ -162,15 +163,23 @@ const Index = () => {
                 </div>
               </Card>
 
-              {/* Columna 2: Imagen Inspección */}
-              <Card className="overflow-hidden shadow-lg flex flex-col"> {/* <-- CAMBIO: flex flex-col */}
-                <div className="flex-1"> {/* <-- CAMBIO: Contenedor para que la imagen crezca */}
-                  <img
-                    src={https://res.cloudinary.com/dz9ktwtyo/video/upload/v1762900561/Dise%C3%B1o_sin_t%C3%ADtulo_jis8c5.mp4}
-                    alt="Inspector revisando documentos"
-                    className="w-full h-full object-cover" // <-- CAMBIO: h-full object-cover
-                    loading="lazy"
-                  />
+              {/* Columna 2: TU NUEVO VIDEO/GIF */}
+              <Card className="overflow-hidden shadow-lg flex flex-col"> 
+                <div className="flex-1"> 
+                  {/* --- AQUÍ ESTÁ LA CORRECCIÓN --- */}
+                  <video
+                    className="w-full h-full object-cover"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    controls
+                    preload="auto"
+                  >
+                    {/* Esta es la URL de tu nuevo video. Fíjate que está entre comillas "" */}
+                    <source src="https://res.cloudinary.com/dz9ktwtyo/video/upload/v1762900561/Dise%C3%B1o_sin_t%C3%ADtulo_jis8c5.mp4" type="video/mp4" />
+                    Tu navegador no soporta el video.
+                  </video>
                 </div>
                 <div className="p-4 bg-card">
                   <p className="font-semibold text-center text-foreground">Revisión de documentos</p>
@@ -183,6 +192,7 @@ const Index = () => {
                 <h4 className="text-xl font-bold text-foreground mb-2">
                   No Arriesgues Tu Inversión
                 </h4>
+                {/* --- CAMBIO: Copy mejorado (Cientos es más creíble) --- */}
                 <p className="text-foreground/70 mb-6">
                   Cientos de comerciantes en Bello ya han enfrentado sanciones por documentación incompleta.
                   No seas el siguiente.
@@ -330,82 +340,4 @@ const Index = () => {
             <h2 className="text-3xl md:text-5xl font-bold">
               ¿Vas a esperar a que lleguen a tu local?
             </h2>
-            <p className="text-xl md:text-2xl text-white/90">
-              No arriesgues tu inversión y el trabajo de tantos años. Asegura tu tranquilidad hoy
-              mismo.
-            </p>
-            <Button
-              size="lg"
-              onClick={openWhatsApp}
-              className="bg-whatsapp hover:bg-whatsapp-hover text-white font-bold text-lg px-8 py-6 shadow-xl hover:shadow-2xl transition-all duration-300"
-            >
-              <Phone className="mr-2 h-5 w-5" />
-              HABLAR CON EL ABOGADO AHORA
-            </Button>
-             {/* --- CAMBIO: Texto CTA para bot --- */}
-            <p className="text-white/80 text-sm md:text-base">
-              <Clock className="inline mr-2" size={18} />
-              Respuesta inmediata 24/7 (Inicia con nuestro asistente virtual)
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer id="contacto" className="bg-primary text-primary-foreground py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div>
-              <h3 className="text-xl font-bold mb-4">Asesoría Legal Comercial</h3>
-              <p className="text-primary-foreground/80">
-                Evitamos el cierre de tu negocio en Bello y zonas cercanas
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-bold mb-4">Contacto</h3>
-              <div className="space-y-2 text-primary-foreground/80">
-                <p className="flex items-center gap-2">
-                  <MapPin size={18} />
-                  {ADDRESS}
-                </p>
-                <p className="flex items-center gap-2">
-                  <Phone size={18} />
-                  {/* --- CAMBIO: Se usa el número de WhatsApp (o puedes poner uno fijo) --- */}
-                  +57 3XX XXX XXXX
-                </p>
-                <p className="flex items-center gap-2">
-                  <Mail size={18} />
-                  {EMAIL}
-                </p>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-bold mb-4">Horario</h3>
-              <p className="text-primary-foreground/80">
-                Lunes a Domingo
-                <br />
-                8:00 AM - 8:00 PM
-                <br />
-                <span className="text-sm">Atención de emergencias 24/7</span>
-              </p>
-            </div>
-          </div>
-
-          <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center text-sm text-primary-foreground/60">
-            <p>La información aquí provista no sustituye asesoría personalizada.</p>
-            <p className="mt-2">
-              © {new Date().getFullYear()} {ATTORNEY_NAME}. Todos los derechos reservados.
-            </p>
-          </div>
-        </div>
-      </footer>
-
-      {/* Floating WhatsApp Button */}
-      <WhatsAppFloat onClick={openWhatsApp} />
-    </div>
-  );
-};
-
-export default Index;
+            <p className="text-xl md:

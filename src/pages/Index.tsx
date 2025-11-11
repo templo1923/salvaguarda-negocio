@@ -8,7 +8,6 @@ import RequirementItem from "@/components/RequirementItem";
 import heroImage from "@/assets/hero-lawyer.jpg";
 import sealedImage from "@/assets/sealed-business.jpg";
 import attorneyPhoto from "@/assets/attorney-photo.jpg";
-import inspectionImage from "@/assets/inspection.jpg";
 
 // --- CAMBIO: Se actualizan los datos para generar confianza ---
 // ⚠️ CONFIGURACIÓN - ¡RECUERDA CAMBIAR EL WHATSAPP_NUMBER!
@@ -166,7 +165,7 @@ const Index = () => {
               <Card className="overflow-hidden shadow-lg flex flex-col"> {/* <-- CAMBIO: flex flex-col */}
                 <div className="flex-1"> {/* <-- CAMBIO: Contenedor para que la imagen crezca */}
                   <img
-                    src={inspectionImage}
+                    src={https://res.cloudinary.com/dz9ktwtyo/video/upload/v1762900561/Dise%C3%B1o_sin_t%C3%ADtulo_jis8c5.mp4}
                     alt="Inspector revisando documentos"
                     className="w-full h-full object-cover" // <-- CAMBIO: h-full object-cover
                     loading="lazy"

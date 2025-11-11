@@ -14,7 +14,7 @@ import attorneyPhoto from "@/assets/attorney-photo.jpg";
 // --- CAMBIO: Se actualizan los datos para generar confianza ---
 // ⚠️ CONFIGURACIÓN - ¡RECUERDA CAMBIAR EL WHATSAPP_NUMBER!
 const WHATSAPP_NUMBER = "573XXXXXXXXX"; // 👈 ¡REEMPLAZA ESTE NÚMERO!
-const ATTORNEY_NAME = "Dr. Juan Pérez";
+const ATTORNEY_NAME = "Dr. Mario Pérez";
 const YEARS_EXPERIENCE = "12";
 const ADDRESS = "Oficina 301, C.C. Parque Bello";
 const EMAIL = "dr.juanperez@abogadosbello.com";

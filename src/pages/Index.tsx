@@ -141,7 +141,7 @@ const Index = () => {
                   poster={sealedImage}
                   preload="auto"
                 >
-                  <source src="https://github.com/templo1923/salvaguarda-negocio/blob/main/src/assets/operativo-niquia.mp4" type="video/mp4" />
+                  <source src="https://www.canva.com/design/DAG4aumL1-4/v58aOWa39W1gAMil6PUOKQ/watch?utm_content=DAG4aumL1-4&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h1bec51c9fd" type="video/mp4" />
                   Tu navegador no soporta el video.
                 </video>
               </Card>

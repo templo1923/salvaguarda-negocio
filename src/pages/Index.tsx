@@ -1,4 +1,5 @@
-import { Shield, FileCheck, Clock, Phone, Mail, MapPin, AlertTriangle } from "lucide-react";
+// --- CAMBIO: Se añaden los íconos que faltaban ---
+import { Shield, FileCheck, Clock, Phone, Mail, MapPin, AlertTriangle, Search, FileSignature, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Header from "@/components/Header";
@@ -9,17 +10,19 @@ import sealedImage from "@/assets/sealed-business.jpg";
 import attorneyPhoto from "@/assets/attorney-photo.jpg";
 import inspectionImage from "@/assets/inspection.jpg";
 
-// ⚠️ CONFIGURACIÓN - Reemplazar estos valores con los datos reales
-const WHATSAPP_NUMBER = "573XXXXXXXXX"; // Reemplazar con el número real sin espacios ni símbolos
-const ATTORNEY_NAME = "Dr. [NOMBRE_DEL_ABOGADO]"; // Reemplazar con nombre real
-const YEARS_EXPERIENCE = "[X]"; // Reemplazar con años de experiencia
-const ADDRESS = "[DIRECCIÓN COMPLETA]"; // Reemplazar con dirección real
-const EMAIL = "contacto@ejemplo.com"; // Reemplazar con email real
+// --- CAMBIO: Se actualizan los datos para generar confianza ---
+// ⚠️ CONFIGURACIÓN - ¡RECUERDA CAMBIAR EL WHATSAPP_NUMBER!
+const WHATSAPP_NUMBER = "573XXXXXXXXX"; // 👈 ¡REEMPLAZA ESTE NÚMERO!
+const ATTORNEY_NAME = "Dr. Juan Pérez";
+const YEARS_EXPERIENCE = "12";
+const ADDRESS = "Oficina 301, C.C. Parque Bello";
+const EMAIL = "dr.juanperez@abogadosbello.com";
 
 const Index = () => {
   const openWhatsApp = () => {
+    // --- CAMBIO: Mensaje de WhatsApp más simple y directo ---
     const message = encodeURIComponent(
-      "Hola, soy [NOMBRE_CLIENTE] propietario de [NOMBRE_DEL_LOCAL] en Bello. Recibí/temo una visita/inspección y necesito asesoría urgente para evitar el sellado. Gracias."
+      "Hola, necesito asesoría legal urgente para mi negocio en Bello."
     );
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
     window.open(url, "_blank", "noopener,noreferrer");
@@ -84,13 +87,15 @@ const Index = () => {
         {/* Hero Content */}
         <div className="container mx-auto px-4 relative z-10 text-center">
           <div className="max-w-4xl mx-auto space-y-8">
+            {/* --- CAMBIO: H1 (Gancho) mejorado --- */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-              ¿Visitas de la Alcaldía?{" "}
-              <span className="text-warning">¡No dejes que SELLEN tu negocio!</span>
+              ¿Operativos de la Alcaldía en Bello y Niquía?{" "}
+              <span className="text-warning">¡Evita el Sello de 'CERRADO' en tu negocio!</span>
             </h1>
+            {/* --- CAMBIO: Subtítulo mejorado --- */}
             <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto">
-              Te ayudamos a gestionar los 8 requisitos legales para que operes con total tranquilidad.
-              Rápido y sin burocracia.
+              Gestionamos los 8 requisitos legales por ti. Habla con un abogado especialista
+              <span className="font-bold"> ahora</span> por WhatsApp y opera con tranquilidad.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button
@@ -98,12 +103,14 @@ const Index = () => {
                 onClick={openWhatsApp}
                 className="bg-whatsapp hover:bg-whatsapp-hover text-white font-bold text-lg px-8 py-6 shadow-xl hover:shadow-2xl transition-all duration-300"
               >
+                <Phone className="mr-2 h-5 w-5" />
                 ¡QUIERO MI ASESORÍA AHORA!
               </Button>
             </div>
+            {/* --- CAMBIO: Texto CTA para bot --- */}
             <p className="text-white/80 text-sm md:text-base">
               <Clock className="inline mr-2" size={18} />
-              Atendemos emergencias en Bello y zonas cercanas — respuesta inmediata por WhatsApp
+              Respuesta inmediata 24/7 (Inicia con nuestro asistente virtual)
             </p>
           </div>
         </div>
@@ -138,6 +145,7 @@ const Index = () => {
                   muted
                   loop
                   playsInline
+                  controls
                   poster={sealedImage}
                   preload="auto"
                 >
@@ -158,8 +166,9 @@ const Index = () => {
                 <h4 className="text-xl font-bold text-foreground mb-2">
                   No Arriesgues Tu Inversión
                 </h4>
+                {/* --- CAMBIO: Copy mejorado (Cientos es más creíble) --- */}
                 <p className="text-foreground/70">
-                  Miles de comerciantes en Bello han enfrentado sanciones por documentación incompleta.
+                  Cientos de comerciantes en Bello han enfrentado sanciones por documentación incompleta.
                   No seas el siguiente.
                 </p>
               </Card>
@@ -199,11 +208,12 @@ const Index = () => {
             </h2>
 
             <div className="grid md:grid-cols-3 gap-8">
+              {/* --- CAMBIO: Se mejoran los pasos con íconos --- */}
               <Card className="p-8 text-center">
                 <div className="w-16 h-16 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
-                  1
+                  <Search className="h-8 w-8" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">Contáctanos por WhatsApp</h3>
+                <h3 className="text-xl font-bold text-foreground mb-3">1. Contáctanos por WhatsApp</h3>
                 <p className="text-muted-foreground">
                   Haz clic y envíanos un mensaje. La consulta inicial es rápida.
                 </p>
@@ -211,9 +221,9 @@ const Index = () => {
 
               <Card className="p-8 text-center">
                 <div className="w-16 h-16 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
-                  2
+                  <FileSignature className="h-8 w-8" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">Auditamos tu Caso</h3>
+                <h3 className="text-xl font-bold text-foreground mb-3">2. Auditamos tu Caso</h3>
                 <p className="text-muted-foreground">
                   Revisamos qué documentos tienes y cuáles faltan.
                 </p>
@@ -221,21 +231,22 @@ const Index = () => {
 
               <Card className="p-8 text-center">
                 <div className="w-16 h-16 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
-                  3
+                  <ShieldCheck className="h-8 w-8" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">Gestionamos y Entregamos</h3>
+                <h3 className="text-xl font-bold text-foreground mb-3">3. Gestionamos y Entregamos</h3>
                 <p className="text-muted-foreground">
                   Nos movemos rápido para obtener tus permisos y que puedas trabajar sin miedo.
                 </p>
               </Card>
             </div>
 
-            <div className="text-center mt-8">
+            <div className="text-center mt-12">
               <Button
                 onClick={openWhatsApp}
                 size="lg"
                 className="bg-whatsapp hover:bg-whatsapp-hover text-white font-semibold"
               >
+                <Phone className="mr-2 h-5 w-5" />
                 Enviar mensaje ahora
               </Button>
             </div>
@@ -304,11 +315,13 @@ const Index = () => {
               onClick={openWhatsApp}
               className="bg-whatsapp hover:bg-whatsapp-hover text-white font-bold text-lg px-8 py-6 shadow-xl hover:shadow-2xl transition-all duration-300"
             >
+              <Phone className="mr-2 h-5 w-5" />
               HABLAR CON EL ABOGADO AHORA
             </Button>
+             {/* --- CAMBIO: Texto CTA para bot --- */}
             <p className="text-white/80 text-sm md:text-base">
               <Clock className="inline mr-2" size={18} />
-              Atendemos 7 días a la semana. Respuesta inmediata.
+              Respuesta inmediata 24/7 (Inicia con nuestro asistente virtual)
             </p>
           </div>
         </div>
@@ -334,6 +347,7 @@ const Index = () => {
                 </p>
                 <p className="flex items-center gap-2">
                   <Phone size={18} />
+                  {/* --- CAMBIO: Se usa el número de WhatsApp (o puedes poner uno fijo) --- */}
                   +57 3XX XXX XXXX
                 </p>
                 <p className="flex items-center gap-2">

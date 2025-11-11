@@ -8,6 +8,7 @@ import RequirementItem from "@/components/RequirementItem";
 import heroImage from "@/assets/hero-lawyer.jpg";
 import sealedImage from "@/assets/sealed-business.jpg";
 import attorneyPhoto from "@/assets/attorney-photo.jpg";
+import inspectionImage from "@/assets/inspection.jpg";
 
 // --- CAMBIO: Se actualizan los datos para generar confianza ---
 // ⚠️ CONFIGURACIÓN - ¡RECUERDA CAMBIAR EL WHATSAPP_NUMBER!

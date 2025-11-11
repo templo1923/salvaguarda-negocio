@@ -138,7 +138,7 @@ const Index = () => {
                   poster={sealedImage}
                   preload="metadata"
                 >
-                  <source src="(PONER_ENLACE_VIDEO_MP4_AQUI)" type="video/mp4" />
+                  <source src="https://github.com/templo1923/salvaguarda-negocio/blob/main/src/assets/operativo-niquia.mp4" type="video/mp4" />
                   Tu navegador no soporta el video.
                 </video>
               </Card>

@@ -32,4 +32,4 @@ declare module '*.svg' {
   const src: string;
   export default src;
 }
-// --- FIN DE LA MODIFICACIÓN ---/// <reference types="vite/client" />
+// --- FIN DE LA MODIFICACIÓN ---

@@ -1,16 +1,13 @@
-import { Shield, FileCheck, Clock, Phone, Mail, MapPin, AlertTriangle, Search, FileSignature, ShieldCheck } from "lucide-react";
-// --- AJUSTE DE RUTAS ---
-// Se cambian los alias "@/" por rutas relativas "../"
-import { Button } from "../components/ui/button";
-import { Card } from "../components/ui/card";
-import Header from "../components/Header";
-import WhatsAppFloat from "../components/WhatsAppFloat";
-import RequirementItem from "../components/RequirementItem";
-import heroImage from "../assets/hero-lawyer.jpg";
-// --- CAMBIO 1: Se importa el video y se elimina 'sealedImage' ---
-import operativoNiquiaVideo from "../assets/operativo-niquia.mp4";
-import attorneyPhoto from "../assets/attorney-photo.jpg";
-import inspectionImage from "../assets/inspection.jpg"; // Se mantiene para usar como 'poster'
+import { Shield, FileCheck, Clock, Phone, Mail, MapPin, AlertTriangle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import Header from "@/components/Header";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
+import RequirementItem from "@/components/RequirementItem";
+import heroImage from "@/assets/hero-lawyer.jpg";
+import sealedImage from "@/assets/sealed-business.jpg";
+import attorneyPhoto from "@/assets/attorney-photo.jpg";
+import inspectionImage from "@/assets/inspection.jpg";
 
 // ⚠️ CONFIGURACIÓN - Reemplazar estos valores con los datos reales
 const WHATSAPP_NUMBER = "573XXXXXXXXX"; // Reemplazar con el número real sin espacios ni símbolos
@@ -21,11 +18,8 @@ const EMAIL = "contacto@ejemplo.com"; // Reemplazar con email real
 
 const Index = () => {
   const openWhatsApp = () => {
-    // --- MEJORA DE COPY ---
-    // Mensaje más simple. Un cliente asustado no llenará campos.
-    // Solo necesita enviar el primer mensaje.
     const message = encodeURIComponent(
-      "Hola, necesito asesoría legal urgente para mi negocio en Bello."
+      "Hola, soy [NOMBRE_CLIENTE] propietario de [NOMBRE_DEL_LOCAL] en Bello. Recibí/temo una visita/inspección y necesito asesoría urgente para evitar el sellado. Gracias."
     );
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
     window.open(url, "_blank", "noopener,noreferrer");
@@ -102,12 +96,8 @@ const Index = () => {
               <Button
                 size="lg"
                 onClick={openWhatsApp}
-                // --- MEJORA DE ESTILO ---
-                // Usar la variante "whatsapp" definida en button.tsx en lugar de clases manuales
-                variant="whatsapp"
-                className="font-bold text-lg px-8 py-6 transition-all duration-300"
+                className="bg-whatsapp hover:bg-whatsapp-hover text-white font-bold text-lg px-8 py-6 shadow-xl hover:shadow-2xl transition-all duration-300"
               >
-                <Phone className="mr-2 h-5 w-5" />
                 ¡QUIERO MI ASESORÍA AHORA!
               </Button>
             </div>
@@ -119,7 +109,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* --- CAMBIO 2: SECCIÓN DE "EL RIESGO" MODIFICADA --- */}
+      {/* Problem Section - El Riesgo */}
       <section className="py-16 md:py-24 bg-secondary">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
@@ -137,50 +127,43 @@ const Index = () => {
             </div>
 
             <h3 className="text-2xl font-bold text-center text-foreground mb-8">
-              Mira lo que está pasando AHORA en Bello:
+              ¿Tienes todo en regla?
             </h3>
 
-            <div className="grid lg:grid-cols-3 gap-6 items-start">
-              {/* Video Player */}
-              <div className="lg:col-span-2 bg-black rounded-lg overflow-hidden shadow-xl border border-border">
+            <div className="grid md:grid-cols-3 gap-6">
+              <Card className="overflow-hidden">
                 <video
-                  className="w-full h-full object-cover"
+                  className="w-full h-64 object-cover"
                   controls
+                  poster={sealedImage}
                   preload="metadata"
-                  playsInline
-                  loading="lazy"
-                  poster={inspectionImage} // Usamos la foto de la inspección como miniatura
                 >
-                  <source src={operativoNiquiaVideo} type="video/mp4" />
+                  <source src="(PONER_ENLACE_VIDEO_MP4_AQUI)" type="video/mp4" />
                   Tu navegador no soporta el video.
                 </video>
-              </div>
-
-              {/* Tarjeta de Alerta */}
-              <Card className="p-6 flex flex-col justify-center bg-destructive/10 border-destructive/20 h-full">
+              </Card>
+              <Card className="overflow-hidden">
+                <img
+                  src={inspectionImage}
+                  alt="Inspector revisando documentos"
+                  className="w-full h-64 object-cover"
+                  loading="lazy"
+                />
+              </Card>
+              <Card className="p-6 flex flex-col justify-center bg-destructive/10 border-destructive/20">
                 <AlertTriangle className="text-destructive mb-4" size={48} />
                 <h4 className="text-xl font-bold text-foreground mb-2">
                   No Arriesgues Tu Inversión
                 </h4>
-                <p className="text-foreground/70 mb-6">
-                  Cientos de comerciantes en Bello ya han enfrentado sanciones por documentación incompleta.
+                <p className="text-foreground/70">
+                  Miles de comerciantes en Bello han enfrentado sanciones por documentación incompleta.
                   No seas el siguiente.
                 </p>
-                <Button
-                  onClick={openWhatsApp}
-                  variant="destructive"
-                  className="font-semibold w-full"
-                >
-                  <AlertTriangle className="mr-2 h-4 w-4" />
-                  ¡Necesito ayuda urgente!
-                </Button>
               </Card>
             </div>
           </div>
         </div>
       </section>
-      {/* --- FIN DE LA SECCIÓN MODIFICADA --- */}
-
 
       {/* Solution Section - Los 8 Requisitos */}
       <section id="requisitos" className="py-16 md:py-24 bg-background">
@@ -214,47 +197,42 @@ const Index = () => {
 
             <div className="grid md:grid-cols-3 gap-8">
               <Card className="p-8 text-center">
-                {/* --- MEJORA VISUAL --- */}
                 <div className="w-16 h-16 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
-                  <Search className="h-8 w-8" />
+                  1
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">1. Contáctanos por WhatsApp</h3>
+                <h3 className="text-xl font-bold text-foreground mb-3">Contáctanos por WhatsApp</h3>
                 <p className="text-muted-foreground">
                   Haz clic y envíanos un mensaje. La consulta inicial es rápida.
                 </p>
               </Card>
 
               <Card className="p-8 text-center">
-                {/* --- MEJORA VISUAL --- */}
                 <div className="w-16 h-16 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
-                  <FileSignature className="h-8 w-8" />
+                  2
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">2. Auditamos tu Caso</h3>
+                <h3 className="text-xl font-bold text-foreground mb-3">Auditamos tu Caso</h3>
                 <p className="text-muted-foreground">
                   Revisamos qué documentos tienes y cuáles faltan.
                 </p>
               </Card>
 
               <Card className="p-8 text-center">
-                {/* --- MEJORA VISUAL --- */}
                 <div className="w-16 h-16 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
-                  <ShieldCheck className="h-8 w-8" />
+                  3
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">3. Gestionamos y Entregamos</h3>
+                <h3 className="text-xl font-bold text-foreground mb-3">Gestionamos y Entregamos</h3>
                 <p className="text-muted-foreground">
                   Nos movemos rápido para obtener tus permisos y que puedas trabajar sin miedo.
                 </p>
               </Card>
             </div>
 
-            <div className="text-center mt-12">
+            <div className="text-center mt-8">
               <Button
                 onClick={openWhatsApp}
                 size="lg"
-                variant="whatsapp"
-                className="font-semibold"
+                className="bg-whatsapp hover:bg-whatsapp-hover text-white font-semibold"
               >
-                <Phone className="mr-2 h-5 w-5" />
                 Enviar mensaje ahora
               </Button>
             </div>
@@ -321,10 +299,8 @@ const Index = () => {
             <Button
               size="lg"
               onClick={openWhatsApp}
-              variant="whatsapp"
-              className="font-bold text-lg px-8 py-6 transition-all duration-300"
+              className="bg-whatsapp hover:bg-whatsapp-hover text-white font-bold text-lg px-8 py-6 shadow-xl hover:shadow-2xl transition-all duration-300"
             >
-              <Phone className="mr-2 h-5 w-5" />
               HABLAR CON EL ABOGADO AHORA
             </Button>
             <p className="text-white/80 text-sm md:text-base">
@@ -355,9 +331,7 @@ const Index = () => {
                 </p>
                 <p className="flex items-center gap-2">
                   <Phone size={18} />
-                  {/* --- MEJORA DE CONTENIDO --- */}
-                  {/* Usar un placeholder claro para el teléfono */}
-                  +57 [TU NÚMERO DE TELÉFONO]
+                  +57 3XX XXX XXXX
                 </p>
                 <p className="flex items-center gap-2">
                   <Mail size={18} />

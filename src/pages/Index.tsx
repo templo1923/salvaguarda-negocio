@@ -6,7 +6,7 @@ import Header from "@/components/Header";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import RequirementItem from "@/components/RequirementItem";
 import heroImage from "@/assets/hero-lawyer.jpg";
-import sealedImage from "@/assets/sealed-business.jpg";
+import sealedImage from "@/assets/sealed-business.jpg";visi
 import attorneyPhoto from "@/assets/attorney-photo.jpg";
 import inspectionImage from "@/assets/inspection.jpg";
 

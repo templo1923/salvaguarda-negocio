@@ -114,103 +114,147 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Problem Section - El Riesgo */}
-      <section className="py-16 md:py-24 bg-secondary">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Las Inspecciones Son Reales y las Sanciones También
-              </h2>
-              <p className="text-lg md:text-xl text-foreground/80 max-w-3xl mx-auto">
-                La Alcaldía está realizando operativos sorpresa en el Municipio de Bello Antioquia.{" "}
-                <span className="font-semibold text-destructive">
-                  Un solo documento faltante puede significar el cierre temporal de tu establecimiento,
-                  multas significativas y la pérdida de tus ventas.
-                </span>
-              </p>
-            </div>
+{/* Problem Section - El Riesgo */}
+<section className="py-16 md:py-24 bg-secondary">
+  <div className="container mx-auto px-4">
+    <div className="max-w-6xl mx-auto">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          Las Inspecciones Son Reales y las Sanciones También
+        </h2>
+        <p className="text-lg md:text-xl text-foreground/80 max-w-3xl mx-auto">
+          La Alcaldía está realizando operativos sorpresa en el Municipio de Bello Antioquia.{" "}
+          <span className="font-semibold text-destructive">
+            Un solo documento faltante puede significar el cierre temporal de tu establecimiento,
+            multas significativas y la pérdida de tus ventas.
+          </span>
+        </p>
+      </div>
 
-            <h3 className="text-2xl font-bold text-center text-foreground mb-8">
-              NO DEJES QUE ESTO TE PASE 
-            </h3>
+      <h3 className="text-2xl font-bold text-center text-foreground mb-8">
+        NO DEJES QUE ESTO TE PASE 
+      </h3>
 
-            {/* --- CAMBIO: Videos en formato vertical 9:16 y más compactos --- */}
-            <div className="flex flex-col items-center gap-6">
-              
-              {/* Contenedor de videos - formato vertical */}
-              <div className="flex flex-col md:flex-row gap-4 w-full max-w-2xl justify-center">
-
-                {/* Video 1 - Formato vertical 9:16 */}
-                <Card className="overflow-hidden shadow-lg flex flex-col w-full max-w-[350px] mx-auto">
-                  <div className="h-81 aspect-[9/16]"> {/* Formato 9:16 exacto */}
-                    <video
-                      className="w-full h-full object-cover"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      controls
-                      poster={sealedImage}
-                      preload="auto"
-                    >
-                      <source src="https://res.cloudinary.com/dz9ktwtyo/video/upload/v1762886362/operativo-niquia_vocctj.mp4" type="video/mp4" />
-                      Tu navegador no soporta el video.
-                    </video>
+      {/* --- MEJORA VISUAL: Sección de videos más atractiva --- */}
+      <div className="flex flex-col items-center gap-8">
+        
+        {/* Contenedor principal con mejor diseño */}
+        <div className="relative w-full max-w-4xl mx-auto">
+          
+          {/* Fondo decorativo sutil */}
+          <div className="absolute inset-0 bg-gradient-to-r from-destructive/5 to-destructive/10 rounded-2xl blur-xl -z-10"></div>
+          
+          {/* Contenido de videos */}
+          <div className="flex flex-col md:flex-row gap-6 items-center justify-center p-6 bg-background/50 backdrop-blur-sm rounded-2xl border border-destructive/20 shadow-2xl">
+            
+            {/* Video 1 con mejor presentación */}
+            <div className="relative group">
+              <div className="absolute -inset-2 bg-gradient-to-r from-destructive to-red-600 rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition-all duration-300"></div>
+              <Card className="overflow-hidden shadow-2xl flex flex-col w-full max-w-[180px] mx-auto relative border-2 border-destructive/30">
+                <div className="h-64 aspect-[9/16] relative">
+                  <video
+                    className="w-full h-full object-cover"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    controls
+                    poster={sealedImage}
+                    preload="auto"
+                  >
+                    <source src="https://res.cloudinary.com/dz9ktwtyo/video/upload/v1762886362/operativo-niquia_vocctj.mp4" type="video/mp4" />
+                    Tu navegador no soporta el video.
+                  </video>
+                  {/* Overlay de play */}
+                  <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center">
+                      <div className="w-0 h-0 border-l-[8px] border-l-destructive border-y-[6px] border-y-transparent ml-1"></div>
+                    </div>
                   </div>
-                  <div className="p-3 bg-card">
-                    <p className="font-semibold text-center text-foreground text-xs">OPERATIVOS REALES EN BELLO</p>
-                  </div>
-                </Card>
-
-                {/* Video 2 - Formato vertical 9:16 */}
-                <Card className="overflow-hidden shadow-lg flex flex-col w-full max-w-[350px] mx-auto">
-                  <div className="h-81 aspect-[9/16]"> {/* Formato 9:16 exacto */}
-                    <video
-                      className="w-full h-full object-cover"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      controls
-                      preload="auto"
-                    >
-                      <source src="https://res.cloudinary.com/dz9ktwtyo/video/upload/v1762900561/Dise%C3%B1o_sin_t%C3%ADtulo_jis8c5.mp4" type="video/mp4" />
-                      Tu navegador no soporta el video.
-                    </video>
-                  </div>
-                  <div className="p-3 bg-card">
-                    <p className="font-semibold text-center text-foreground text-xs">CIERRE DE ESTABLECIMIENTOS</p>
-                  </div>
-                </Card>
-              
-              </div>
-
-              {/* Tarjeta de Alerta - compacta */}
-              <Card className="p-3 flex flex-col justify-center bg-destructive/10 border-destructive/20 w-full max-w-md">
-                <AlertTriangle className="text-destructive mb-3 mx-auto" size={36} />
-                <h4 className="text-lg font-bold text-foreground mb-2 text-center">
-                  NO TE ARRIESGUES TU INVERSIÓN
-                </h4>
-                <p className="text-foreground/70 mb-4 text-center text-sm">
-                  Cientos de comerciantes en Bello y alrededores ya han enfrentado sanciones por su documentación incompleta.
-                  No seas el siguiente.
-                </p>
-                <Button
-                  onClick={openWhatsApp}
-                  variant="destructive"
-                  className="font-semibold w-full text-sm py-2"
-                >
-                  <AlertTriangle className="mr-2 h-4 w-4" />
-                  ¡Necesito ayuda!
-                </Button>
+                </div>
+                <div className="p-3 bg-gradient-to-r from-destructive/10 to-red-500/10">
+                  <p className="font-bold text-center text-foreground text-xs uppercase tracking-wide">
+                    OPERATIVOS REALES EN BELLO
+                  </p>
+                </div>
               </Card>
             </div>
 
+            {/* Separador visual */}
+            <div className="hidden md:flex flex-col items-center justify-center">
+              <div className="w-1 h-16 bg-destructive/30 rounded-full"></div>
+              <div className="text-destructive font-bold text-lg mx-4">VS</div>
+              <div className="w-1 h-16 bg-destructive/30 rounded-full"></div>
+            </div>
+
+            {/* Video 2 con mejor presentación */}
+            <div className="relative group">
+              <div className="absolute -inset-2 bg-gradient-to-r from-red-600 to-destructive rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition-all duration-300"></div>
+              <Card className="overflow-hidden shadow-2xl flex flex-col w-full max-w-[180px] mx-auto relative border-2 border-destructive/30">
+                <div className="h-64 aspect-[9/16] relative">
+                  <video
+                    className="w-full h-full object-cover"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    controls
+                    preload="auto"
+                  >
+                    <source src="https://res.cloudinary.com/dz9ktwtyo/video/upload/v1762900561/Dise%C3%B1o_sin_t%C3%ADtulo_jis8c5.mp4" type="video/mp4" />
+                    Tu navegador no soporta el video.
+                  </video>
+                  {/* Overlay de play */}
+                  <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center">
+                      <div className="w-0 h-0 border-l-[8px] border-l-destructive border-y-[6px] border-y-transparent ml-1"></div>
+                    </div>
+                  </div>
+                </div>
+                <div className="p-3 bg-gradient-to-r from-red-500/10 to-destructive/10">
+                  <p className="font-bold text-center text-foreground text-xs uppercase tracking-wide">
+                    CIERRE DE ESTABLECIMIENTOS
+                  </p>
+                </div>
+              </Card>
+            </div>
           </div>
         </div>
-      </section>
 
+        {/* Tarjeta de Alerta mejorada */}
+        <div className="relative group w-full max-w-md">
+          <div className="absolute -inset-1 bg-gradient-to-r from-destructive to-red-600 rounded-2xl blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
+          <Card className="p-6 flex flex-col justify-center bg-gradient-to-br from-destructive/10 to-red-500/5 border-2 border-destructive/30 relative backdrop-blur-sm">
+            <div className="flex items-center justify-center mb-4">
+              <div className="relative">
+                <AlertTriangle className="text-destructive" size={42} />
+                <div className="absolute inset-0 text-destructive animate-ping opacity-20">
+                  <AlertTriangle size={42} />
+                </div>
+              </div>
+            </div>
+            <h4 className="text-xl font-bold text-foreground mb-3 text-center">
+              ⚠️ NO TE ARRIESGUES TU INVERSIÓN
+            </h4>
+            <p className="text-foreground/70 mb-5 text-center text-sm leading-relaxed">
+              Cientos de comerciantes en Bello y alrededores ya han enfrentado sanciones por su documentación incompleta.
+              <span className="font-bold text-destructive block mt-2">No seas el siguiente.</span>
+            </p>
+            <Button
+              onClick={openWhatsApp}
+              variant="destructive"
+              className="font-bold w-full py-3 text-base shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              <AlertTriangle className="mr-2 h-5 w-5" />
+              ¡Necesito ayuda URGENTE!
+            </Button>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+      
       {/* Solution Section - Los 8 Requisitos */}
       <section id="requisitos" className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4">

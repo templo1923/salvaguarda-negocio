@@ -221,27 +221,128 @@ const Index = () => {
 </section>
 
     
-      {/* Solution Section - Los 8 Requisitos */}
-      <section id="requisitos" className="py-16 md:py-24 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Nosotros nos encargamos de <span className="text-primary">TODO el papeleo</span>
-              </h2>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-                No pierdas tiempo en filas ni te enredes con trámites. Nuestro equipo legal gestiona por ti:
-              </p>
-            </div>
+{/* Solution Section - Los 8 Requisitos - MEJORADA */}
+<section id="requisitos" className="py-16 md:py-24 bg-gradient-to-br from-background to-secondary/30 relative overflow-hidden">
+  {/* Elementos decorativos de fondo */}
+  <div className="absolute top-0 left-0 w-72 h-72 bg-primary/5 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
+  <div className="absolute bottom-0 right-0 w-96 h-96 bg-destructive/5 rounded-full translate-x-1/3 translate-y-1/3 blur-3xl"></div>
+  
+  <div className="container mx-auto px-4 relative z-10">
+    <div className="max-w-6xl mx-auto">
+      
+      {/* Header mejorado */}
+      <div className="text-center mb-16">
+        <div className="inline-flex items-center gap-3 bg-primary/10 px-6 py-3 rounded-full mb-6 border border-primary/20">
+          <ShieldCheck className="text-primary h-6 w-6" />
+          <span className="text-primary font-semibold">Solución Integral</span>
+        </div>
+        <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
+          Nosotros nos encargamos de{" "}
+          <span className="text-transparent bg-gradient-to-r from-primary to-primary/70 bg-clip-text">
+            TODO el papeleo
+          </span>
+        </h2>
+        <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          No pierdas tiempo en filas ni te enredes con trámites. Nuestro equipo legal especializado 
+          <span className="font-semibold text-primary"> gestiona cada documento por ti</span> mientras tú te enfocas en tu negocio.
+        </p>
+      </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
-              {requirements.map((req, index) => (
-                <RequirementItem key={index} title={req.title} description={req.description} />
-              ))}
+      {/* Grid de requisitos interactivo */}
+      <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6 mb-12">
+        {requirements.map((req, index) => (
+          <div
+            key={index}
+            className="group relative"
+          >
+            {/* Efecto de fondo al hover */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 scale-105 group-hover:scale-100"></div>
+            
+            <Card className="p-6 relative overflow-hidden border-2 border-transparent group-hover:border-primary/20 transition-all duration-500 hover:shadow-2xl hover:translate-y-[-4px]">
+              
+              {/* Número con efecto */}
+              <div className="absolute top-4 right-4 w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+                <span className="text-sm font-bold text-primary group-hover:text-white">{index + 1}</span>
+              </div>
+              
+              {/* Ícono animado */}
+              <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary/70 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                <FileCheck className="text-white h-6 w-6" />
+              </div>
+              
+              {/* Contenido */}
+              <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+                {req.title}
+              </h3>
+              <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/80 transition-colors duration-300">
+                {req.description}
+              </p>
+              
+              {/* Línea decorativa inferior */}
+              <div className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-primary to-primary/70 group-hover:w-full transition-all duration-500 delay-200"></div>
+            </Card>
+          </div>
+        ))}
+      </div>
+
+      {/* Sección de beneficios adicionales */}
+      <div className="bg-gradient-to-r from-primary/5 to-primary/10 rounded-2xl p-8 border border-primary/20">
+        <div className="grid md:grid-cols-3 gap-8 text-center">
+          <div className="space-y-3">
+            <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-2">
+              <Clock className="text-primary h-8 w-8" />
             </div>
+            <h4 className="font-bold text-foreground text-lg">Ahorra Tiempo</h4>
+            <p className="text-muted-foreground text-sm">
+              Evita filas interminables y procesos burocráticos
+            </p>
+          </div>
+          
+          <div className="space-y-3">
+            <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-2">
+              <Shield className="text-primary h-8 w-8" />
+            </div>
+            <h4 className="font-bold text-foreground text-lg">100% Legal</h4>
+            <p className="text-muted-foreground text-sm">
+              Todos los documentos según normativa vigente
+            </p>
+          </div>
+          
+          <div className="space-y-3">
+            <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-2">
+              <FileSignature className="text-primary h-8 w-8" />
+            </div>
+            <h4 className="font-bold text-foreground text-lg">Seguimiento Total</h4>
+            <p className="text-muted-foreground text-sm">
+              Te mantenemos informado en cada etapa del proceso
+            </p>
           </div>
         </div>
-      </section>
+      </div>
+
+      {/* CTA intermedio */}
+      <div className="text-center mt-12">
+        <div className="bg-gradient-to-r from-destructive/10 to-red-500/10 border border-destructive/20 rounded-2xl p-6 max-w-2xl mx-auto">
+          <p className="text-lg font-semibold text-foreground mb-4">
+            ¿No sabes por dónde empezar con tus documentos?
+          </p>
+          <Button
+            onClick={openWhatsApp}
+            size="lg"
+            className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300"
+          >
+            <FileCheck className="mr-2 h-5 w-5" />
+            ¡Quiero que revisen mi caso!
+          </Button>
+          <p className="text-sm text-muted-foreground mt-3">
+            Consulta inicial sin costo por WhatsApp
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* How It Works Section */}
       <section className="py-16 md:py-24 bg-secondary">

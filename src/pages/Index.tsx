@@ -186,7 +186,7 @@ const Index = () => {
                 </Card>
 
                 {/* Columna 3: Alerta */}
-                <Card className="p-6 flex flex-col justify-center bg-destructive/10 border-destructive/20 h-full md:col-span-2 md:max-w-2xl md:mx-auto w-full">
+                <Card className="p-6 flex flex-col justify-center bg-destructive/10 border-destructive/20 h-full md:col-span-2 md:max-w-xl md:mx-auto w-full">
                   <AlertTriangle className="text-destructive mb-4" size={48} />
                   <h4 className="text-xl font-bold text-foreground mb-2">
                     NO TE ARRIESGUES TU INVERSIÓN

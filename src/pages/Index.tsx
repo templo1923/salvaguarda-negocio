@@ -137,13 +137,13 @@ const Index = () => {
               NO DEJES QUE ESTO TE PASE 
             </h3>
 
-            {/* --- ⚠️ AQUÍ ESTÁ EL CAMBIO --- */}
-            {/* Cambiamos md:max-w-5xl por md:max-w-4xl para hacer los videos más pequeños */}
-            <div className="md:max-w-xl mx-auto">
+            {/* Este div controla el ancho de la cuadrícula de videos/alerta */}
+            <div className="md:max-w-4xl mx-auto">
               <div className="grid md:grid-cols-2 gap-6 items-stretch">
                 
-                {/* Columna 1: Video */}
-                <Card className="overflow-hidden shadow-lg flex flex-col">
+                {/* --- ⚠️ AQUÍ ESTÁ EL CAMBIO 1 --- */}
+                {/* Añadimos w-full md:max-w-md md:mx-auto para centrar y limitar el tamaño de esta tarjeta */}
+                <Card className="overflow-hidden shadow-lg flex flex-col w-full md:max-w-md md:mx-auto">
                   <div className="flex-1">
                     <video
                       className="w-full h-full object-cover"
@@ -164,8 +164,9 @@ const Index = () => {
                   </div>
                 </Card>
 
-                {/* Columna 2: TU NUEVO VIDEO/GIF */}
-                <Card className="overflow-hidden shadow-lg flex flex-col"> 
+                {/* --- ⚠️ AQUÍ ESTÁ EL CAMBIO 2 --- */}
+                {/* Añadimos w-full md:max-w-md md:mx-auto para centrar y limitar el tamaño de esta tarjeta */}
+                <Card className="overflow-hidden shadow-lg flex flex-col w-full md:max-w-md md:mx-auto"> 
                   <div className="flex-1"> 
                     <video
                       className="w-full h-full object-cover"

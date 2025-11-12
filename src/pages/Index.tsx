@@ -90,8 +90,8 @@ const Index = () => {
           <div className="max-w-4xl mx-auto space-y-8">
             {/* --- CAMBIO: H1 (Gancho) mejorado --- */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-              ¿Operativos de la Alcaldía en Bello?{" "}</h1>
-              </h1><span className="text-warning">¡Evita el Sello de 'CERRADO' en tu negocio!</span>
+              ¿Operativos de la Alcaldía en Bello?{" "}
+              <span className="text-warning">¡Evita el Sello de 'CERRADO' en tu negocio!</span>
             </h1>
             {/* --- CAMBIO: Subtítulo mejorado --- */}
             <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto">

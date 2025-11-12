@@ -8,8 +8,6 @@ import RequirementItem from "@/components/RequirementItem";
 import heroImage from "@/assets/hero-lawyer.jpg";
 import sealedImage from "@/assets/sealed-business.jpg";
 import attorneyPhoto from "@/assets/attorney-photo.jpg";
-// --- CAMBIO: Se elimina 'inspectionImage' porque usaremos tu GIF/video ---
-// import inspectionImage from "@/assets/inspection.jpg";
 
 // --- CAMBIO: Se actualizan los datos para generar confianza ---
 // ⚠️ CONFIGURACIÓN - ¡RECUERDA CAMBIAR EL WHATSAPP_NUMBER!
@@ -137,42 +135,39 @@ const Index = () => {
               NO DEJES QUE ESTO TE PASE 
             </h3>
 
-            {/* --- ⚠️ INICIO DEL CAMBIO --- */}
-            {/* Este div apila los 3 elementos (el grupo de videos y la tarjeta de alerta) y los centra */}
+            {/* --- CAMBIO: Videos más pequeños y compactos --- */}
             <div className="flex flex-col items-center gap-6">
               
-              {/* Este div agrupa los 2 videos. Se apilan en móvil y se ponen uno al lado del otro en escritorio */}
-              <div className="flex flex-col md:flex-row gap-6 w-full justify-center">
+              {/* Contenedor de videos - más compacto */}
+              <div className="flex flex-col md:flex-row gap-4 w-full max-w-2xl justify-center">
 
-                {/* TARJETA DE VIDEO 1 (MINIATURA) */}
-                {/* "max-w-sm" (24rem) se aplica en TODAS las pantallas. "mx-auto" lo centra en el contenedor flex. */}
-                <Card className="overflow-hidden shadow-lg flex flex-col w-full max-w-sm mx-auto">
-                  <div>
+                {/* Video 1 - Tamaño reducido */}
+                <Card className="overflow-hidden shadow-lg flex flex-col w-full max-w-xs mx-auto">
+                  <div className="h-48"> {/* Altura fija reducida */}
                     <video
-                      className="w-full object-cover" // "w-full" hace que llene la tarjeta "max-w-sm"
+                      className="w-full h-full object-cover"
                       autoPlay
                       muted
                       loop
                       playsInline
                       controls
-                      poster={sealedImage} 
+                      poster={sealedImage}
                       preload="auto"
                     >
                       <source src="https://res.cloudinary.com/dz9ktwtyo/video/upload/v1762886362/operativo-niquia_vocctj.mp4" type="video/mp4" />
                       Tu navegador no soporta el video.
                     </video>
                   </div>
-                  <div className="p-4 bg-card">
-                    <p className="font-semibold text-center text-foreground">OPERATIVOS REALES EN BELLO</p>
+                  <div className="p-3 bg-card"> {/* Padding reducido */}
+                    <p className="font-semibold text-center text-foreground text-sm">OPERATIVOS REALES EN BELLO</p>
                   </div>
                 </Card>
 
-                {/* TARJETA DE VIDEO 2 (MINIATURA) */}
-                {/* Se aplican las mismas clases "w-full max-w-sm mx-auto" */}
-                <Card className="overflow-hidden shadow-lg flex flex-col w-full max-w-sm mx-auto"> 
-                  <div> 
+                {/* Video 2 - Tamaño reducido */}
+                <Card className="overflow-hidden shadow-lg flex flex-col w-full max-w-xs mx-auto">
+                  <div className="h-48"> {/* Altura fija reducida */}
                     <video
-                      className="w-full object-cover"
+                      className="w-full h-full object-cover"
                       autoPlay
                       muted
                       loop
@@ -184,34 +179,33 @@ const Index = () => {
                       Tu navegador no soporta el video.
                     </video>
                   </div>
-                  <div className="p-4 bg-card">
-                    <p className="font-semibold text-center text-foreground">CIERRE DE ESTABLECIMIENTOS</p>
+                  <div className="p-3 bg-card"> {/* Padding reducido */}
+                    <p className="font-semibold text-center text-foreground text-sm">CIERRE DE ESTABLECIMIENTOS</p>
                   </div>
                 </Card>
               
-              </div> {/* Fin del div de los videos */}
+              </div>
 
-              {/* Tarjeta de Alerta (Se centra y se le da un ancho máximo) */}
-              <Card className="p-6 flex flex-col justify-center bg-destructive/10 border-destructive/20 h-full w-full md:max-w-xl">
-                <AlertTriangle className="text-destructive mb-4 mx-auto" size={48} />
-                <h4 className="text-xl font-bold text-foreground mb-2 text-center">
+              {/* Tarjeta de Alerta - también más compacta */}
+              <Card className="p-4 flex flex-col justify-center bg-destructive/10 border-destructive/20 w-full max-w-md">
+                <AlertTriangle className="text-destructive mb-3 mx-auto" size={36} />
+                <h4 className="text-lg font-bold text-foreground mb-2 text-center">
                   NO TE ARRIESGUES TU INVERSIÓN
                 </h4>
-                <p className="text-foreground/70 mb-6 text-center">
+                <p className="text-foreground/70 mb-4 text-center text-sm">
                   Cientos de comerciantes en Bello y alrededores ya han enfrentado sanciones por su documentación incompleta.
                   No seas el siguiente.
                 </p>
                 <Button
                   onClick={openWhatsApp}
                   variant="destructive"
-                  className="font-semibold w-full"
+                  className="font-semibold w-full text-sm py-2"
                 >
                   <AlertTriangle className="mr-2 h-4 w-4" />
                   ¡Necesito ayuda!
                 </Button>
               </Card>
             </div>
-            {/* --- ⚠️ FIN DEL CAMBIO --- */}
 
           </div>
         </div>
@@ -248,7 +242,6 @@ const Index = () => {
             </h2>
 
             <div className="grid md:grid-cols-3 gap-8">
-              {/* --- CAMBIO: Se mejoran los pasos con íconos --- */}
               <Card className="p-8 text-center">
                 <div className="w-16 h-16 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                   <Search className="h-8 w-8" />
@@ -357,7 +350,6 @@ const Index = () => {
               <Phone className="mr-2 h-5 w-5" />
               HABLAR CON EL ABOGADO AHORA
             </Button>
-             {/* --- CAMBIO: Texto CTA para bot --- */}
             <p className="text-white/80 text-sm md:text-base">
               <Clock className="inline mr-2" size={18} />
               Respuesta inmediata 24/7 (Inicia con nuestro asistente virtual)
@@ -386,7 +378,6 @@ const Index = () => {
                 </p>
                 <p className="flex items-center gap-2">
                   <Phone size={18} />
-                  {/* --- CAMBIO: Se usa el número de WhatsApp (o puedes poner uno fijo) --- */}
                   +57 3XX XXX XXXX
                 </p>
                 <p className="flex items-center gap-2">

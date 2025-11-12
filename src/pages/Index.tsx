@@ -138,7 +138,7 @@ const Index = () => {
             </h3>
 
             {/* Div para limitar el ancho en escritorio y centrarlo */}
-            <div className="md:max-w-5xl mx-auto">
+            <div className="md:max-w-3xl mx-auto">
               <div className="grid md:grid-cols-2 gap-6 items-stretch">
                 
                 {/* Columna 1: Video */}

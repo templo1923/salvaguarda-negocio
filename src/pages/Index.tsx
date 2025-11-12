@@ -186,31 +186,41 @@ const Index = () => {
               
               </div>
 
-              {/* Tarjeta de Alerta - compacta */}
-              <Card className="p-4 flex flex-col justify-center bg-destructive/10 border-destructive/20 w-full max-w-md">
-                <AlertTriangle className="text-destructive mb-3 mx-auto" size={36} />
-                <h4 className="text-lg font-bold text-foreground mb-2 text-center">
-                  NO TE ARRIESGUES TU INVERSIÓN
-                </h4>
-                <p className="text-foreground/70 mb-4 text-center text-sm">
-                  Cientos de comerciantes en Bello y alrededores ya han enfrentado sanciones por su documentación incompleta.
-                  No seas el siguiente.
-                </p>
-                <Button
-                  onClick={openWhatsApp}
-                  variant="destructive"
-                  className="font-semibold w-full text-sm py-2"
-                >
-                  <AlertTriangle className="mr-2 h-4 w-4" />
-                  ¡Necesito ayuda!
-                </Button>
-              </Card>
+        {/* Tarjeta de Alerta mejorada */}
+        <div className="relative group w-full max-w-md">
+          <div className="absolute -inset-1 bg-gradient-to-r from-destructive to-red-600 rounded-2xl blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
+          <Card className="p-6 flex flex-col justify-center bg-gradient-to-br from-destructive/10 to-red-500/5 border-2 border-destructive/30 relative backdrop-blur-sm">
+            <div className="flex items-center justify-center mb-4">
+              <div className="relative">
+                <AlertTriangle className="text-destructive" size={42} />
+                <div className="absolute inset-0 text-destructive animate-ping opacity-20">
+                  <AlertTriangle size={42} />
+                </div>
+              </div>
             </div>
-
-          </div>
+            <h4 className="text-xl font-bold text-foreground mb-3 text-center">
+              ⚠️ NO TE ARRIESGUES TU INVERSIÓN
+            </h4>
+            <p className="text-foreground/70 mb-5 text-center text-sm leading-relaxed">
+              Cientos de comerciantes en Bello y alrededores ya han enfrentado sanciones por su documentación incompleta.
+              <span className="font-bold text-destructive block mt-2">No seas el siguiente.</span>
+            </p>
+            <Button
+              onClick={openWhatsApp}
+              variant="destructive"
+              className="font-bold w-full py-3 text-base shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              <AlertTriangle className="mr-2 h-5 w-5" />
+              ¡Necesito ayuda URGENTE!
+            </Button>
+          </Card>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
 
+    
       {/* Solution Section - Los 8 Requisitos */}
       <section id="requisitos" className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4">

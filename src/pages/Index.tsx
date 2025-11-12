@@ -137,20 +137,15 @@ const Index = () => {
               NO DEJES QUE ESTO TE PASE 
             </h3>
 
-            {/* --- ⚠️ CAMBIO 1: Contenedor principal de esta sección --- */}
-            {/* Usamos flex-col para apilar en móvil, y items-center para centrar todo */}
-            <div className="flex flex-col items-center gap-6">
-              
-              {/* --- ⚠️ CAMBIO 2: Contenedor para los dos videos --- */}
-              {/* En móvil se apilan (flex-col), en escritorio se ponen uno al lado del otro (md:flex-row) */}
-              <div className="flex flex-col md:flex-row gap-6 w-full justify-center">
-
-                {/* --- ⚠️ CAMBIO 3: Tarjeta de Video 1 --- */}
-                {/* "w-full max-w-md" es la clave. Es igual que la foto del abogado. */}
-                <Card className="overflow-hidden shadow-lg flex flex-col w-full max-w-md">
+            {/* Div para limitar el ancho en escritorio y centrarlo */}
+            <div className="md:max-w-5xl mx-auto">
+              <div className="grid md:grid-cols-2 gap-6 items-start justify-items-center">
+                
+                {/* --- ⚠️ CAMBIO: Se reemplaza "md:max-w-md" por "max-w-sm" --- */}
+                <Card className="overflow-hidden shadow-lg flex flex-col w-full max-w-sm">
                   <div>
                     <video
-                      className="w-full object-cover" // Quitamos h-full
+                      className="w-full object-cover"
                       autoPlay
                       muted
                       loop
@@ -168,11 +163,11 @@ const Index = () => {
                   </div>
                 </Card>
 
-                {/* --- ⚠️ CAMBIO 4: Tarjeta de Video 2 (mismos cambios) --- */}
-                <Card className="overflow-hidden shadow-lg flex flex-col w-full max-w-md"> 
+                {/* --- ⚠️ CAMBIO: Se reemplaza "md:max-w-md" por "max-w-sm" --- */}
+                <Card className="overflow-hidden shadow-lg flex flex-col w-full max-w-sm"> 
                   <div> 
                     <video
-                      className="w-full object-cover" // Quitamos h-full
+                      className="w-full object-cover"
                       autoPlay
                       muted
                       loop
@@ -189,28 +184,26 @@ const Index = () => {
                   </div>
                 </Card>
 
-              </div> {/* <-- Fin del contenedor de los dos videos --> */}
-
-              {/* Columna 3: Alerta. La hacemos más pequeña y la centramos */}
-              <Card className="p-6 flex flex-col justify-center bg-destructive/10 border-destructive/20 h-full w-full md:max-w-xl">
-                <AlertTriangle className="text-destructive mb-4 mx-auto" size={48} />
-                <h4 className="text-xl font-bold text-foreground mb-2 text-center">
-                  NO TE ARRIESGUES TU INVERSIÓN
-                </h4>
-                <p className="text-foreground/70 mb-6 text-center">
-                  Cientos de comerciantes en Bello y alrededores ya han enfrentado sanciones por su documentación incompleta.
-                  No seas el siguiente.
-                </p>
-                <Button
-                  onClick={openWhatsApp}
-                  variant="destructive"
-                  className="font-semibold w-full"
-                >
-                  <AlertTriangle className="mr-2 h-4 w-4" />
-                  ¡Necesito ayuda!
-                </Button>
-              </Card>
-
+                {/* Columna 3: Alerta */}
+                <Card className="p-6 flex flex-col justify-center bg-destructive/10 border-destructive/20 h-full md:col-span-2 md:max-w-xl md:mx-auto w-full">
+                  <AlertTriangle className="text-destructive mb-4 mx-auto" size={48} />
+                  <h4 className="text-xl font-bold text-foreground mb-2 text-center">
+                    NO TE ARRIESGUES TU INVERSIÓN
+                  </h4>
+                  <p className="text-foreground/70 mb-6 text-center">
+                    Cientos de comerciantes en Bello y alrededores ya han enfrentado sanciones por su documentación incompleta.
+                    No seas el siguiente.
+                  </p>
+                  <Button
+                    onClick={openWhatsApp}
+                    variant="destructive"
+                    className="font-semibold w-full"
+                  >
+                    <AlertTriangle className="mr-2 h-4 w-4" />
+                    ¡Necesito ayuda!
+                  </Button>
+                </Card>
+              </div>
             </div>
           </div>
         </div>

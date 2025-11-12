@@ -13,7 +13,7 @@ import attorneyPhoto from "@/assets/attorney-photo.jpg";
 
 // --- CAMBIO: Se actualizan los datos para generar confianza ---
 // ⚠️ CONFIGURACIÓN - ¡RECUERDA CAMBIAR EL WHATSAPP_NUMBER!
-const WHATSAPP_NUMBER = "573004085041"; // 👈 ¡REEMPLAZA ESTE NÚMERO!
+const WHATSAPP_NUMBER = "573XXXXXXXXX"; // 👈 ¡REEMPLAZA ESTE NÚMERO!
 const ATTORNEY_NAME = "Dr. Mario Pérez";
 const YEARS_EXPERIENCE = "12";
 const ADDRESS = "Oficina 301, C.C. Parque Bello";
@@ -137,18 +137,20 @@ const Index = () => {
               NO DEJES QUE ESTO TE PASE 
             </h3>
 
-            {/* Este div ya no es necesario, pero lo mantenemos por consistencia */}
-            <div className="md:max-w-5xl mx-auto">
-              {/* --- ⚠️ CAMBIO 1: Se añade "justify-items-center" --- */}
-              <div className="grid md:grid-cols-2 gap-6 items-start justify-items-center">
-                
-                {/* --- ⚠️ CAMBIO 2: Se añade "w-full md:max-w-md" a la tarjeta --- */}
-                <Card className="overflow-hidden shadow-lg flex flex-col w-full md:max-w-md">
-                  {/* --- ⚠️ CAMBIO 3: Se elimina "flex-1" de este div --- */}
+            {/* --- ⚠️ CAMBIO 1: Contenedor principal de esta sección --- */}
+            {/* Usamos flex-col para apilar en móvil, y items-center para centrar todo */}
+            <div className="flex flex-col items-center gap-6">
+              
+              {/* --- ⚠️ CAMBIO 2: Contenedor para los dos videos --- */}
+              {/* En móvil se apilan (flex-col), en escritorio se ponen uno al lado del otro (md:flex-row) */}
+              <div className="flex flex-col md:flex-row gap-6 w-full justify-center">
+
+                {/* --- ⚠️ CAMBIO 3: Tarjeta de Video 1 --- */}
+                {/* "w-full max-w-md" es la clave. Es igual que la foto del abogado. */}
+                <Card className="overflow-hidden shadow-lg flex flex-col w-full max-w-md">
                   <div>
                     <video
-                      // --- ⚠️ CAMBIO 4: Se elimina "h-full" del video ---
-                      className="w-full object-cover"
+                      className="w-full object-cover" // Quitamos h-full
                       autoPlay
                       muted
                       loop
@@ -166,11 +168,11 @@ const Index = () => {
                   </div>
                 </Card>
 
-                {/* --- ⚠️ REPETIMOS CAMBIOS 2, 3 y 4 --- */}
-                <Card className="overflow-hidden shadow-lg flex flex-col w-full md:max-w-md"> 
+                {/* --- ⚠️ CAMBIO 4: Tarjeta de Video 2 (mismos cambios) --- */}
+                <Card className="overflow-hidden shadow-lg flex flex-col w-full max-w-md"> 
                   <div> 
                     <video
-                      className="w-full object-cover"
+                      className="w-full object-cover" // Quitamos h-full
                       autoPlay
                       muted
                       loop
@@ -187,26 +189,28 @@ const Index = () => {
                   </div>
                 </Card>
 
-                {/* Columna 3: Alerta */}
-                <Card className="p-6 flex flex-col justify-center bg-destructive/10 border-destructive/20 h-full md:col-span-2 md:max-w-xl md:mx-auto w-full">
-                  <AlertTriangle className="text-destructive mb-4 mx-auto" size={48} />
-                  <h4 className="text-xl font-bold text-foreground mb-2 text-center">
-                    NO TE ARRIESGUES TU INVERSIÓN
-                  </h4>
-                  <p className="text-foreground/70 mb-6 text-center">
-                    Cientos de comerciantes en Bello y alrededores ya han enfrentado sanciones por su documentación incompleta.
-                    No seas el siguiente.
-                  </p>
-                  <Button
-                    onClick={openWhatsApp}
-                    variant="destructive"
-                    className="font-semibold w-full"
-                  >
-                    <AlertTriangle className="mr-2 h-4 w-4" />
-                    ¡Necesito ayuda!
-                  </Button>
-                </Card>
-              </div>
+              </div> {/* <-- Fin del contenedor de los dos videos --> */}
+
+              {/* Columna 3: Alerta. La hacemos más pequeña y la centramos */}
+              <Card className="p-6 flex flex-col justify-center bg-destructive/10 border-destructive/20 h-full w-full md:max-w-xl">
+                <AlertTriangle className="text-destructive mb-4 mx-auto" size={48} />
+                <h4 className="text-xl font-bold text-foreground mb-2 text-center">
+                  NO TE ARRIESGUES TU INVERSIÓN
+                </h4>
+                <p className="text-foreground/70 mb-6 text-center">
+                  Cientos de comerciantes en Bello y alrededores ya han enfrentado sanciones por su documentación incompleta.
+                  No seas el siguiente.
+                </p>
+                <Button
+                  onClick={openWhatsApp}
+                  variant="destructive"
+                  className="font-semibold w-full"
+                >
+                  <AlertTriangle className="mr-2 h-4 w-4" />
+                  ¡Necesito ayuda!
+                </Button>
+              </Card>
+
             </div>
           </div>
         </div>

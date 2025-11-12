@@ -139,7 +139,7 @@ const Index = () => {
 
             {/* --- ⚠️ AQUÍ ESTÁ EL CAMBIO --- */}
             {/* Cambiamos md:max-w-5xl por md:max-w-4xl para hacer los videos más pequeños */}
-            <div className="md:max-w-4xl mx-auto">
+            <div className="md:max-w-xl mx-auto">
               <div className="grid md:grid-cols-2 gap-6 items-stretch">
                 
                 {/* Columna 1: Video */}

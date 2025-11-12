@@ -182,7 +182,7 @@ const Index = () => {
                   </video>
                 </div>
                 <div className="p-4 bg-card">
-                  <p className="font-semibold text-center text-foreground">Revisión de documentos</p>
+                  <p className="font-semibold text-center text-foreground">Sellamientos por falta de documentos</p>
                 </div>
               </Card>
 

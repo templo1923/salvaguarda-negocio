@@ -137,8 +137,9 @@ const Index = () => {
               NO DEJES QUE ESTO TE PASE 
             </h3>
 
-            {/* Div para limitar el ancho en escritorio y centrarlo */}
-            <div className="md:max-w-7xl mx-auto">
+            {/* --- ⚠️ AQUÍ ESTÁ EL CAMBIO --- */}
+            {/* Cambiamos md:max-w-5xl por md:max-w-4xl para hacer los videos más pequeños */}
+            <div className="md:max-w-4xl mx-auto">
               <div className="grid md:grid-cols-2 gap-6 items-stretch">
                 
                 {/* Columna 1: Video */}
@@ -184,13 +185,13 @@ const Index = () => {
                   </div>
                 </Card>
 
-                {/* --- ⚠️ AQUÍ ESTÁN LOS CAMBIOS --- */}
-                <Card className="p-6 flex flex-col justify-center bg-destructive/10 border-destructive/20 h-full md:col-span-2 md:max-w-xl md:mx-auto w-full"> {/* <-- CAMBIO: max-w-xl */}
-                  <AlertTriangle className="text-destructive mb-4 mx-auto" size={48} /> {/* <-- CAMBIO: mx-auto */}
-                  <h4 className="text-xl font-bold text-foreground mb-2 text-center"> {/* <-- CAMBIO: text-center */}
+                {/* Columna 3: Alerta */}
+                <Card className="p-6 flex flex-col justify-center bg-destructive/10 border-destructive/20 h-full md:col-span-2 md:max-w-xl md:mx-auto w-full">
+                  <AlertTriangle className="text-destructive mb-4 mx-auto" size={48} />
+                  <h4 className="text-xl font-bold text-foreground mb-2 text-center">
                     NO TE ARRIESGUES TU INVERSIÓN
                   </h4>
-                  <p className="text-foreground/70 mb-6 text-center"> {/* <-- CAMBIO: text-center */}
+                  <p className="text-foreground/70 mb-6 text-center">
                     Cientos de comerciantes en Bello y alrededores ya han enfrentado sanciones por su documentación incompleta.
                     No seas el siguiente.
                   </p>
@@ -204,7 +205,7 @@ const Index = () => {
                   </Button>
                 </Card>
               </div>
-            </div> {/* <-- Cierre del div de max-w-5xl --> */}
+            </div> {/* <-- Cerramos el div de max-w-4xl --> */}
           </div>
         </div>
       </section>

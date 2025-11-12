@@ -181,7 +181,7 @@ const Index = () => {
                     </video>
                   </div>
                   <div className="p-4 bg-card">
-                    <p className="font-semibold text-center text-foreground">CIERRE DE ESTABLECIEMINTOS</p>
+                    <p className="font-semibold text-center text-foreground">CIERRE DE ESTABLECIMIENTOS</p>
                   </div>
                 </Card>
 

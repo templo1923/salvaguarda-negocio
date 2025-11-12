@@ -135,15 +135,15 @@ const Index = () => {
               NO DEJES QUE ESTO TE PASE 
             </h3>
 
-            {/* --- CAMBIO: Videos más pequeños y compactos --- */}
+            {/* --- CAMBIO: Videos en formato vertical 9:16 y más compactos --- */}
             <div className="flex flex-col items-center gap-6">
               
-              {/* Contenedor de videos - más compacto */}
+              {/* Contenedor de videos - formato vertical */}
               <div className="flex flex-col md:flex-row gap-4 w-full max-w-2xl justify-center">
 
-                {/* Video 1 - Tamaño reducido */}
-                <Card className="overflow-hidden shadow-lg flex flex-col w-full max-w-xs mx-auto">
-                  <div className="h-48"> {/* Altura fija reducida */}
+                {/* Video 1 - Formato vertical 9:16 */}
+                <Card className="overflow-hidden shadow-lg flex flex-col w-full max-w-[180px] mx-auto">
+                  <div className="h-64 aspect-[9/16]"> {/* Formato 9:16 exacto */}
                     <video
                       className="w-full h-full object-cover"
                       autoPlay
@@ -158,14 +158,14 @@ const Index = () => {
                       Tu navegador no soporta el video.
                     </video>
                   </div>
-                  <div className="p-3 bg-card"> {/* Padding reducido */}
-                    <p className="font-semibold text-center text-foreground text-sm">OPERATIVOS REALES EN BELLO</p>
+                  <div className="p-3 bg-card">
+                    <p className="font-semibold text-center text-foreground text-xs">OPERATIVOS REALES EN BELLO</p>
                   </div>
                 </Card>
 
-                {/* Video 2 - Tamaño reducido */}
-                <Card className="overflow-hidden shadow-lg flex flex-col w-full max-w-xs mx-auto">
-                  <div className="h-48"> {/* Altura fija reducida */}
+                {/* Video 2 - Formato vertical 9:16 */}
+                <Card className="overflow-hidden shadow-lg flex flex-col w-full max-w-[180px] mx-auto">
+                  <div className="h-64 aspect-[9/16]"> {/* Formato 9:16 exacto */}
                     <video
                       className="w-full h-full object-cover"
                       autoPlay
@@ -179,14 +179,14 @@ const Index = () => {
                       Tu navegador no soporta el video.
                     </video>
                   </div>
-                  <div className="p-3 bg-card"> {/* Padding reducido */}
-                    <p className="font-semibold text-center text-foreground text-sm">CIERRE DE ESTABLECIMIENTOS</p>
+                  <div className="p-3 bg-card">
+                    <p className="font-semibold text-center text-foreground text-xs">CIERRE DE ESTABLECIMIENTOS</p>
                   </div>
                 </Card>
               
               </div>
 
-              {/* Tarjeta de Alerta - también más compacta */}
+              {/* Tarjeta de Alerta - compacta */}
               <Card className="p-4 flex flex-col justify-center bg-destructive/10 border-destructive/20 w-full max-w-md">
                 <AlertTriangle className="text-destructive mb-3 mx-auto" size={36} />
                 <h4 className="text-lg font-bold text-foreground mb-2 text-center">

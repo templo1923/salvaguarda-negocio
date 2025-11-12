@@ -137,15 +137,19 @@ const Index = () => {
               NO DEJES QUE ESTO TE PASE 
             </h3>
 
-            {/* Div para limitar el ancho en escritorio y centrarlo */}
-            <div className="md:max-w-5xl mx-auto">
-              <div className="grid md:grid-cols-2 gap-6 items-start justify-items-center">
-                
-                {/* --- ⚠️ CAMBIO: Se reemplaza "md:max-w-md" por "max-w-sm" --- */}
-                <Card className="overflow-hidden shadow-lg flex flex-col w-full max-w-sm">
+            {/* --- ⚠️ INICIO DEL CAMBIO --- */}
+            {/* Este div apila los 3 elementos (el grupo de videos y la tarjeta de alerta) y los centra */}
+            <div className="flex flex-col items-center gap-6">
+              
+              {/* Este div agrupa los 2 videos. Se apilan en móvil y se ponen uno al lado del otro en escritorio */}
+              <div className="flex flex-col md:flex-row gap-6 w-full justify-center">
+
+                {/* TARJETA DE VIDEO 1 (MINIATURA) */}
+                {/* "max-w-sm" (24rem) se aplica en TODAS las pantallas. "mx-auto" lo centra en el contenedor flex. */}
+                <Card className="overflow-hidden shadow-lg flex flex-col w-full max-w-sm mx-auto">
                   <div>
                     <video
-                      className="w-full object-cover"
+                      className="w-full object-cover" // "w-full" hace que llene la tarjeta "max-w-sm"
                       autoPlay
                       muted
                       loop
@@ -163,8 +167,9 @@ const Index = () => {
                   </div>
                 </Card>
 
-                {/* --- ⚠️ CAMBIO: Se reemplaza "md:max-w-md" por "max-w-sm" --- */}
-                <Card className="overflow-hidden shadow-lg flex flex-col w-full max-w-sm"> 
+                {/* TARJETA DE VIDEO 2 (MINIATURA) */}
+                {/* Se aplican las mismas clases "w-full max-w-sm mx-auto" */}
+                <Card className="overflow-hidden shadow-lg flex flex-col w-full max-w-sm mx-auto"> 
                   <div> 
                     <video
                       className="w-full object-cover"
@@ -183,28 +188,31 @@ const Index = () => {
                     <p className="font-semibold text-center text-foreground">CIERRE DE ESTABLECIMIENTOS</p>
                   </div>
                 </Card>
+              
+              </div> {/* Fin del div de los videos */}
 
-                {/* Columna 3: Alerta */}
-                <Card className="p-6 flex flex-col justify-center bg-destructive/10 border-destructive/20 h-full md:col-span-2 md:max-w-xl md:mx-auto w-full">
-                  <AlertTriangle className="text-destructive mb-4 mx-auto" size={48} />
-                  <h4 className="text-xl font-bold text-foreground mb-2 text-center">
-                    NO TE ARRIESGUES TU INVERSIÓN
-                  </h4>
-                  <p className="text-foreground/70 mb-6 text-center">
-                    Cientos de comerciantes en Bello y alrededores ya han enfrentado sanciones por su documentación incompleta.
-                    No seas el siguiente.
-                  </p>
-                  <Button
-                    onClick={openWhatsApp}
-                    variant="destructive"
-                    className="font-semibold w-full"
-                  >
-                    <AlertTriangle className="mr-2 h-4 w-4" />
-                    ¡Necesito ayuda!
-                  </Button>
-                </Card>
-              </div>
+              {/* Tarjeta de Alerta (Se centra y se le da un ancho máximo) */}
+              <Card className="p-6 flex flex-col justify-center bg-destructive/10 border-destructive/20 h-full w-full md:max-w-xl">
+                <AlertTriangle className="text-destructive mb-4 mx-auto" size={48} />
+                <h4 className="text-xl font-bold text-foreground mb-2 text-center">
+                  NO TE ARRIESGUES TU INVERSIÓN
+                </h4>
+                <p className="text-foreground/70 mb-6 text-center">
+                  Cientos de comerciantes en Bello y alrededores ya han enfrentado sanciones por su documentación incompleta.
+                  No seas el siguiente.
+                </p>
+                <Button
+                  onClick={openWhatsApp}
+                  variant="destructive"
+                  className="font-semibold w-full"
+                >
+                  <AlertTriangle className="mr-2 h-4 w-4" />
+                  ¡Necesito ayuda!
+                </Button>
+              </Card>
             </div>
+            {/* --- ⚠️ FIN DEL CAMBIO --- */}
+
           </div>
         </div>
       </section>

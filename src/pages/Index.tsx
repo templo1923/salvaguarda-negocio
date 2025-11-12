@@ -137,13 +137,12 @@ const Index = () => {
               NO DEJES QUE ESTO TE PASE 
             </h3>
 
-            {/* Este div controla el ancho de la cuadrícula de videos/alerta */}
-            <div className="md:max-w-4xl mx-auto">
-              <div className="grid md:grid-cols-2 gap-6 items-stretch">
+            <div className="md:max-w-5xl mx-auto">
+              {/* --- ⚠️ CAMBIO 1: Se reemplaza "items-stretch" por "justify-items-center" --- */}
+              <div className="grid md:grid-cols-2 gap-6 justify-items-center">
                 
-                {/* --- ⚠️ AQUÍ ESTÁ EL CAMBIO 1 --- */}
-                {/* Añadimos w-full md:max-w-md md:mx-auto para centrar y limitar el tamaño de esta tarjeta */}
-                <Card className="overflow-hidden shadow-lg flex flex-col w-full md:max-w-md md:mx-auto">
+                {/* --- ⚠️ CAMBIO 2: Se añade "w-full md:max-w-md" --- */}
+                <Card className="overflow-hidden shadow-lg flex flex-col w-full md:max-w-md">
                   <div className="flex-1">
                     <video
                       className="w-full h-full object-cover"
@@ -164,9 +163,8 @@ const Index = () => {
                   </div>
                 </Card>
 
-                {/* --- ⚠️ AQUÍ ESTÁ EL CAMBIO 2 --- */}
-                {/* Añadimos w-full md:max-w-md md:mx-auto para centrar y limitar el tamaño de esta tarjeta */}
-                <Card className="overflow-hidden shadow-lg flex flex-col w-full md:max-w-md md:mx-auto"> 
+                {/* --- ⚠️ CAMBIO 3: Se añade "w-full md:max-w-md" --- */}
+                <Card className="overflow-hidden shadow-lg flex flex-col w-full md:max-w-md"> 
                   <div className="flex-1"> 
                     <video
                       className="w-full h-full object-cover"
@@ -206,7 +204,7 @@ const Index = () => {
                   </Button>
                 </Card>
               </div>
-            </div> {/* <-- Cerramos el div de max-w-4xl --> */}
+            </div>
           </div>
         </div>
       </section>

@@ -143,7 +143,7 @@ const Index = () => {
 
                 {/* Video 1 - Formato vertical 9:16 */}
                 <Card className="overflow-hidden shadow-lg flex flex-col w-full max-w-[350px] mx-auto">
-                  <div className="h-90 aspect-[9/16]"> {/* Formato 9:16 exacto */}
+                  <div className="h-85 aspect-[9/16]"> {/* Formato 9:16 exacto */}
                     <video
                       className="w-full h-full object-cover"
                       autoPlay
@@ -165,7 +165,7 @@ const Index = () => {
 
                 {/* Video 2 - Formato vertical 9:16 */}
                 <Card className="overflow-hidden shadow-lg flex flex-col w-full max-w-[350px] mx-auto">
-                  <div className="h-90 aspect-[9/16]"> {/* Formato 9:16 exacto */}
+                  <div className="h-85 aspect-[9/16]"> {/* Formato 9:16 exacto */}
                     <video
                       className="w-full h-full object-cover"
                       autoPlay
@@ -187,8 +187,8 @@ const Index = () => {
               </div>
 
               {/* Tarjeta de Alerta - compacta */}
-              <Card className="p-4 flex flex-col justify-center bg-destructive/10 border-destructive/20 w-full max-w-md">
-                <AlertTriangle className="text-destructive mb-3 mx-auto" size={26} />
+              <Card className="p-3 flex flex-col justify-center bg-destructive/10 border-destructive/20 w-full max-w-md">
+                <AlertTriangle className="text-destructive mb-3 mx-auto" size={36} />
                 <h4 className="text-lg font-bold text-foreground mb-2 text-center">
                   NO TE ARRIESGUES TU INVERSIÓN
                 </h4>

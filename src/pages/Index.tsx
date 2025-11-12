@@ -100,9 +100,9 @@ const Index = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button
-                size="lg"
                 onClick={openWhatsApp}
-                className="bg-whatsapp hover:bg-whatsapp-hover text-white font-bold text-lg px-8 py-6 shadow-xl hover:shadow-2xl transition-all duration-300"
+                // --- ⚠️ AQUÍ ESTÁ EL CAMBIO 1 ---
+                className="bg-whatsapp hover:bg-whatsapp-hover text-white font-bold rounded-md shadow-xl hover:shadow-2xl transition-all duration-300 text-base px-6 py-4 md:text-lg md:px-8"
               >
                 <Phone className="mr-2 h-5 w-5" />
                 ¡QUIERO MI ASESORÍA AHORA!
@@ -345,9 +345,9 @@ const Index = () => {
               mismo.
             </p>
             <Button
-              size="lg"
               onClick={openWhatsApp}
-              className="bg-whatsapp hover:bg-whatsapp-hover text-white font-bold text-lg px-8 py-6 shadow-xl hover:shadow-2xl transition-all duration-300"
+              // --- ⚠️ AQUÍ ESTÁ EL CAMBIO 2 ---
+              className="bg-whatsapp hover:bg-whatsapp-hover text-white font-bold rounded-md shadow-xl hover:shadow-2xl transition-all duration-300 text-base px-6 py-4 md:text-lg md:px-8"
             >
               <Phone className="mr-2 h-5 w-5" />
               HABLAR CON EL ABOGADO AHORA

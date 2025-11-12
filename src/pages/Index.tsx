@@ -90,8 +90,8 @@ const Index = () => {
           <div className="max-w-4xl mx-auto space-y-8">
             {/* --- CAMBIO: H1 (Gancho) mejorado --- */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-              ¿Operativos de la Alcaldía en Bello?{" "}
-              <span className="text-warning">¡Evita el Sello de 'CERRADO' en tu negocio!</span>
+              ¿Operativos De La Alcaldía En Bello?{" "}
+              <span className="text-warning">¡Evita El Sello De 'CERRADO' En Tu Negocio!</span>
             </h1>
             {/* --- CAMBIO: Subtítulo mejorado --- */}
             <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto">
@@ -125,16 +125,16 @@ const Index = () => {
                 Las Inspecciones Son Reales y las Sanciones También
               </h2>
               <p className="text-lg md:text-xl text-foreground/80 max-w-3xl mx-auto">
-                La Alcaldía está realizando operativos sorpresa en Bello (ej. Niquía).{" "}
+                La Alcaldía está realizando operativos sorpresa en el Municipio de Bello Antioquia.{" "}
                 <span className="font-semibold text-destructive">
                   Un solo documento faltante puede significar el cierre temporal de tu establecimiento,
-                  multas y la pérdida de tus ventas.
+                  multas significativas y la pérdida de tus ventas.
                 </span>
               </p>
             </div>
 
             <h3 className="text-2xl font-bold text-center text-foreground mb-8">
-              No dejes que esto te pase:
+              NO DEJES QUE ESTO TE PASE 
             </h3>
 
             {/* --- ⚠️ AQUÍ ESTÁ EL CAMBIO --- */}
@@ -160,7 +160,7 @@ const Index = () => {
                     </video>
                   </div>
                   <div className="p-4 bg-card">
-                    <p className="font-semibold text-center text-foreground">Operativos reales en Bello</p>
+                    <p className="font-semibold text-center text-foreground">OPERATIVOS REALES EN BELLO</p>
                   </div>
                 </Card>
 
@@ -181,7 +181,7 @@ const Index = () => {
                     </video>
                   </div>
                   <div className="p-4 bg-card">
-                    <p className="font-semibold text-center text-foreground">Revisión de documentos</p>
+                    <p className="font-semibold text-center text-foreground">CIERRE DE ESTABLECIEMINTOS</p>
                   </div>
                 </Card>
 
@@ -189,10 +189,10 @@ const Index = () => {
                 <Card className="p-6 flex flex-col justify-center bg-destructive/10 border-destructive/20 h-full md:col-span-2 md:max-w-2xl md:mx-auto w-full">
                   <AlertTriangle className="text-destructive mb-4" size={48} />
                   <h4 className="text-xl font-bold text-foreground mb-2">
-                    No Arriesgues Tu Inversión
+                    NO TE ARRIESGUES TU INVERSIÓN
                   </h4>
                   <p className="text-foreground/70 mb-6">
-                    Cientos de comerciantes en Bello ya han enfrentado sanciones por documentación incompleta.
+                    Cientos de comerciantes en Bello y alrededores ya han enfrentado sanciones por su documentación incompleta.
                     No seas el siguiente.
                   </p>
                   <Button
@@ -201,7 +201,7 @@ const Index = () => {
                     className="font-semibold w-full"
                   >
                     <AlertTriangle className="mr-2 h-4 w-4" />
-                    ¡Necesito ayuda urgente!
+                    ¡Necesito ayuda!
                   </Button>
                 </Card>
               </div>

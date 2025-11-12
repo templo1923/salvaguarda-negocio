@@ -199,7 +199,7 @@ const Index = () => {
               </div>
             </div>
             <h4 className="text-xl font-bold text-foreground mb-3 text-center">
-              ⚠️ NO TE ARRIESGUES TU INVERSIÓN
+              ⚠️ NO ARRIESGUES TU INVERSIÓN
             </h4>
             <p className="text-foreground/70 mb-5 text-center text-sm leading-relaxed">
               Cientos de comerciantes en Bello y alrededores ya han enfrentado sanciones por su documentación incompleta.

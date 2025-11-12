@@ -137,75 +137,75 @@ const Index = () => {
               No dejes que esto te pase:
             </h3>
 
-            {/* --- ⚠️ AQUÍ ESTÁ EL CAMBIO 1 --- */}
-            {/* Cambiamos de md:grid-cols-3 a md:grid-cols-2 */}
-            <div className="grid md:grid-cols-2 gap-6 items-stretch">
-              
-              {/* Columna 1: Video */}
-              <Card className="overflow-hidden shadow-lg flex flex-col">
-                <div className="flex-1">
-                  <video
-                    className="w-full h-full object-cover"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    controls
-                    poster={sealedImage} 
-                    preload="auto"
-                  >
-                    <source src="https://res.cloudinary.com/dz9ktwtyo/video/upload/v1762886362/operativo-niquia_vocctj.mp4" type="video/mp4" />
-                    Tu navegador no soporta el video.
-                  </video>
-                </div>
-                <div className="p-4 bg-card">
-                  <p className="font-semibold text-center text-foreground">Operativos reales en Bello</p>
-                </div>
-              </Card>
+            {/* --- ⚠️ AQUÍ ESTÁ EL CAMBIO --- */}
+            {/* Añadimos este div para limitar el ancho en escritorio y centrarlo */}
+            <div className="md:max-w-5xl mx-auto">
+              <div className="grid md:grid-cols-2 gap-6 items-stretch">
+                
+                {/* Columna 1: Video */}
+                <Card className="overflow-hidden shadow-lg flex flex-col">
+                  <div className="flex-1">
+                    <video
+                      className="w-full h-full object-cover"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      controls
+                      poster={sealedImage} 
+                      preload="auto"
+                    >
+                      <source src="https://res.cloudinary.com/dz9ktwtyo/video/upload/v1762886362/operativo-niquia_vocctj.mp4" type="video/mp4" />
+                      Tu navegador no soporta el video.
+                    </video>
+                  </div>
+                  <div className="p-4 bg-card">
+                    <p className="font-semibold text-center text-foreground">Operativos reales en Bello</p>
+                  </div>
+                </Card>
 
-              {/* Columna 2: TU NUEVO VIDEO/GIF */}
-              <Card className="overflow-hidden shadow-lg flex flex-col"> 
-                <div className="flex-1"> 
-                  <video
-                    className="w-full h-full object-cover"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    controls
-                    preload="auto"
-                  >
-                    <source src="https://res.cloudinary.com/dz9ktwtyo/video/upload/v1762900561/Dise%C3%B1o_sin_t%C3%ADtulo_jis8c5.mp4" type="video/mp4" />
-                    Tu navegador no soporta el video.
-                  </video>
-                </div>
-                <div className="p-4 bg-card">
-                  <p className="font-semibold text-center text-foreground">Revisión de documentos</p>
-                </div>
-              </Card>
+                {/* Columna 2: TU NUEVO VIDEO/GIF */}
+                <Card className="overflow-hidden shadow-lg flex flex-col"> 
+                  <div className="flex-1"> 
+                    <video
+                      className="w-full h-full object-cover"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      controls
+                      preload="auto"
+                    >
+                      <source src="https://res.cloudinary.com/dz9ktwtyo/video/upload/v1762900561/Dise%C3%B1o_sin_t%C3%ADtulo_jis8c5.mp4" type="video/mp4" />
+                      Tu navegador no soporta el video.
+                    </video>
+                  </div>
+                  <div className="p-4 bg-card">
+                    <p className="font-semibold text-center text-foreground">Revisión de documentos</p>
+                  </div>
+                </Card>
 
-              {/* --- ⚠️ AQUÍ ESTÁ EL CAMBIO 2 --- */}
-              {/* Añadimos md:col-span-2 para que esta tarjeta ocupe la siguiente fila completa */}
-              {/* Y md:max-w-2xl md:mx-auto para centrarla y hacerla "pequeña" */}
-              <Card className="p-6 flex flex-col justify-center bg-destructive/10 border-destructive/20 h-full md:col-span-2 md:max-w-2xl md:mx-auto w-full">
-                <AlertTriangle className="text-destructive mb-4" size={48} />
-                <h4 className="text-xl font-bold text-foreground mb-2">
-                  No Arriesgues Tu Inversión
-                </h4>
-                <p className="text-foreground/70 mb-6">
-                  Cientos de comerciantes en Bello ya han enfrentado sanciones por documentación incompleta.
-                  No seas el siguiente.
-                </p>
-                <Button
-                  onClick={openWhatsApp}
-                  variant="destructive"
-                  className="font-semibold w-full"
-                >
-                  <AlertTriangle className="mr-2 h-4 w-4" />
-                  ¡Necesito ayuda urgente!
-                </Button>
-              </Card>
-            </div>
+                {/* Columna 3: Alerta */}
+                <Card className="p-6 flex flex-col justify-center bg-destructive/10 border-destructive/20 h-full md:col-span-2 md:max-w-2xl md:mx-auto w-full">
+                  <AlertTriangle className="text-destructive mb-4" size={48} />
+                  <h4 className="text-xl font-bold text-foreground mb-2">
+                    No Arriesgues Tu Inversión
+                  </h4>
+                  <p className="text-foreground/70 mb-6">
+                    Cientos de comerciantes en Bello ya han enfrentado sanciones por documentación incompleta.
+                    No seas el siguiente.
+                  </p>
+                  <Button
+                    onClick={openWhatsApp}
+                    variant="destructive"
+                    className="font-semibold w-full"
+                  >
+                    <AlertTriangle className="mr-2 h-4 w-4" />
+                    ¡Necesito ayuda urgente!
+                  </Button>
+                </Card>
+              </div>
+            </div> {/* <-- Cerramos el nuevo div que añadimos */}
           </div>
         </div>
       </section>

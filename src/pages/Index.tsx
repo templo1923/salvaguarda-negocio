@@ -114,41 +114,103 @@ const Index = () => {
         </div>
       </section>
 
-      
-        {/* Tarjeta de Alerta mejorada */}
-        <div className="relative group w-full max-w-md">
-          <div className="absolute -inset-1 bg-gradient-to-r from-destructive to-red-600 rounded-2xl blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
-          <Card className="p-6 flex flex-col justify-center bg-gradient-to-br from-destructive/10 to-red-500/5 border-2 border-destructive/30 relative backdrop-blur-sm">
-            <div className="flex items-center justify-center mb-4">
-              <div className="relative">
-                <AlertTriangle className="text-destructive" size={42} />
-                <div className="absolute inset-0 text-destructive animate-ping opacity-20">
-                  <AlertTriangle size={42} />
-                </div>
-              </div>
+      {/* Problem Section - El Riesgo */}
+      <section className="py-16 md:py-24 bg-secondary">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                Las Inspecciones Son Reales y las Sanciones También
+              </h2>
+              <p className="text-lg md:text-xl text-foreground/80 max-w-3xl mx-auto">
+                La Alcaldía está realizando operativos sorpresa en el Municipio de Bello Antioquia.{" "}
+                <span className="font-semibold text-destructive">
+                  Un solo documento faltante puede significar el cierre temporal de tu establecimiento,
+                  multas significativas y la pérdida de tus ventas.
+                </span>
+              </p>
             </div>
-            <h4 className="text-xl font-bold text-foreground mb-3 text-center">
-              ⚠️ NO TE ARRIESGUES TU INVERSIÓN
-            </h4>
-            <p className="text-foreground/70 mb-5 text-center text-sm leading-relaxed">
-              Cientos de comerciantes en Bello y alrededores ya han enfrentado sanciones por su documentación incompleta.
-              <span className="font-bold text-destructive block mt-2">No seas el siguiente.</span>
-            </p>
-            <Button
-              onClick={openWhatsApp}
-              variant="destructive"
-              className="font-bold w-full py-3 text-base shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              <AlertTriangle className="mr-2 h-5 w-5" />
-              ¡Necesito ayuda URGENTE!
-            </Button>
-          </Card>
+
+            <h3 className="text-2xl font-bold text-center text-foreground mb-8">
+              NO DEJES QUE ESTO TE PASE 
+            </h3>
+
+            {/* --- CAMBIO: Videos en formato vertical 9:16 y más compactos --- */}
+            <div className="flex flex-col items-center gap-6">
+              
+              {/* Contenedor de videos - formato vertical */}
+              <div className="flex flex-col md:flex-row gap-4 w-full max-w-2xl justify-center">
+
+                {/* Video 1 - Formato vertical 9:16 */}
+                <Card className="overflow-hidden shadow-lg flex flex-col w-full max-w-[180px] mx-auto">
+                  <div className="h-64 aspect-[9/16]"> {/* Formato 9:16 exacto */}
+                    <video
+                      className="w-full h-full object-cover"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      controls
+                      poster={sealedImage}
+                      preload="auto"
+                    >
+                      <source src="https://res.cloudinary.com/dz9ktwtyo/video/upload/v1762886362/operativo-niquia_vocctj.mp4" type="video/mp4" />
+                      Tu navegador no soporta el video.
+                    </video>
+                  </div>
+                  <div className="p-3 bg-card">
+                    <p className="font-semibold text-center text-foreground text-xs">OPERATIVOS REALES EN BELLO</p>
+                  </div>
+                </Card>
+
+                {/* Video 2 - Formato vertical 9:16 */}
+                <Card className="overflow-hidden shadow-lg flex flex-col w-full max-w-[180px] mx-auto">
+                  <div className="h-64 aspect-[9/16]"> {/* Formato 9:16 exacto */}
+                    <video
+                      className="w-full h-full object-cover"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      controls
+                      preload="auto"
+                    >
+                      <source src="https://res.cloudinary.com/dz9ktwtyo/video/upload/v1762900561/Dise%C3%B1o_sin_t%C3%ADtulo_jis8c5.mp4" type="video/mp4" />
+                      Tu navegador no soporta el video.
+                    </video>
+                  </div>
+                  <div className="p-3 bg-card">
+                    <p className="font-semibold text-center text-foreground text-xs">CIERRE DE ESTABLECIMIENTOS</p>
+                  </div>
+                </Card>
+              
+              </div>
+
+              {/* Tarjeta de Alerta - compacta */}
+              <Card className="p-4 flex flex-col justify-center bg-destructive/10 border-destructive/20 w-full max-w-md">
+                <AlertTriangle className="text-destructive mb-3 mx-auto" size={36} />
+                <h4 className="text-lg font-bold text-foreground mb-2 text-center">
+                  NO TE ARRIESGUES TU INVERSIÓN
+                </h4>
+                <p className="text-foreground/70 mb-4 text-center text-sm">
+                  Cientos de comerciantes en Bello y alrededores ya han enfrentado sanciones por su documentación incompleta.
+                  No seas el siguiente.
+                </p>
+                <Button
+                  onClick={openWhatsApp}
+                  variant="destructive"
+                  className="font-semibold w-full text-sm py-2"
+                >
+                  <AlertTriangle className="mr-2 h-4 w-4" />
+                  ¡Necesito ayuda!
+                </Button>
+              </Card>
+            </div>
+
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-      
+      </section>
+
       {/* Solution Section - Los 8 Requisitos */}
       <section id="requisitos" className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4">

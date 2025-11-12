@@ -101,7 +101,6 @@ const Index = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button
                 onClick={openWhatsApp}
-                // --- ⚠️ AQUÍ ESTÁ EL CAMBIO 1 ---
                 className="bg-whatsapp hover:bg-whatsapp-hover text-white font-bold rounded-md shadow-xl hover:shadow-2xl transition-all duration-300 text-base px-6 py-4 md:text-lg md:px-8"
               >
                 <Phone className="mr-2 h-5 w-5" />
@@ -138,14 +137,15 @@ const Index = () => {
               No dejes que esto te pase:
             </h3>
 
-            {/* --- CAMBIO: Reorganización de la cuadrícula --- */}
-            <div className="grid md:grid-cols-3 gap-6 items-stretch"> {/* <-- CAMBIO: items-stretch */}
+            {/* --- ⚠️ AQUÍ ESTÁ EL CAMBIO 1 --- */}
+            {/* Cambiamos de md:grid-cols-3 a md:grid-cols-2 */}
+            <div className="grid md:grid-cols-2 gap-6 items-stretch">
               
               {/* Columna 1: Video */}
-              <Card className="overflow-hidden shadow-lg flex flex-col"> {/* <-- CAMBIO: flex flex-col */}
-                <div className="flex-1"> {/* <-- CAMBIO: Contenedor para que el video crezca */}
+              <Card className="overflow-hidden shadow-lg flex flex-col">
+                <div className="flex-1">
                   <video
-                    className="w-full h-full object-cover" // <-- CAMBIO: h-full object-cover
+                    className="w-full h-full object-cover"
                     autoPlay
                     muted
                     loop
@@ -166,7 +166,6 @@ const Index = () => {
               {/* Columna 2: TU NUEVO VIDEO/GIF */}
               <Card className="overflow-hidden shadow-lg flex flex-col"> 
                 <div className="flex-1"> 
-                  {/* --- AQUÍ ESTÁ LA CORRECCIÓN --- */}
                   <video
                     className="w-full h-full object-cover"
                     autoPlay
@@ -176,23 +175,23 @@ const Index = () => {
                     controls
                     preload="auto"
                   >
-                    {/* Esta es la URL de tu nuevo video. Fíjate que está entre comillas "" */}
                     <source src="https://res.cloudinary.com/dz9ktwtyo/video/upload/v1762900561/Dise%C3%B1o_sin_t%C3%ADtulo_jis8c5.mp4" type="video/mp4" />
                     Tu navegador no soporta el video.
                   </video>
                 </div>
                 <div className="p-4 bg-card">
-                  <p className="font-semibold text-center text-foreground">Sellamientos por falta de documentos</p>
+                  <p className="font-semibold text-center text-foreground">Revisión de documentos</p>
                 </div>
               </Card>
 
-              {/* Columna 3: Alerta */}
-              <Card className="p-6 flex flex-col justify-center bg-destructive/10 border-destructive/20 h-full"> {/* <-- CAMBIO: h-full y flex-col */}
+              {/* --- ⚠️ AQUÍ ESTÁ EL CAMBIO 2 --- */}
+              {/* Añadimos md:col-span-2 para que esta tarjeta ocupe la siguiente fila completa */}
+              {/* Y md:max-w-2xl md:mx-auto para centrarla y hacerla "pequeña" */}
+              <Card className="p-6 flex flex-col justify-center bg-destructive/10 border-destructive/20 h-full md:col-span-2 md:max-w-2xl md:mx-auto w-full">
                 <AlertTriangle className="text-destructive mb-4" size={48} />
                 <h4 className="text-xl font-bold text-foreground mb-2">
                   No Arriesgues Tu Inversión
                 </h4>
-                {/* --- CAMBIO: Copy mejorado (Cientos es más creíble) --- */}
                 <p className="text-foreground/70 mb-6">
                   Cientos de comerciantes en Bello ya han enfrentado sanciones por documentación incompleta.
                   No seas el siguiente.
@@ -346,7 +345,6 @@ const Index = () => {
             </p>
             <Button
               onClick={openWhatsApp}
-              // --- ⚠️ AQUÍ ESTÁ EL CAMBIO 2 ---
               className="bg-whatsapp hover:bg-whatsapp-hover text-white font-bold rounded-md shadow-xl hover:shadow-2xl transition-all duration-300 text-base px-6 py-4 md:text-lg md:px-8"
             >
               <Phone className="mr-2 h-5 w-5" />

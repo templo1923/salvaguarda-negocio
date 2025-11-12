@@ -319,27 +319,6 @@ const Index = () => {
           </div>
         </div>
       </div>
-
-      {/* CTA intermedio */}
-      <div className="text-center mt-12">
-        <div className="bg-gradient-to-r from-destructive/10 to-red-500/10 border border-destructive/20 rounded-2xl p-6 max-w-2xl mx-auto">
-          <p className="text-lg font-semibold text-foreground mb-4">
-            ¿No sabes por dónde empezar con tus documentos?
-          </p>
-          <Button
-            onClick={openWhatsApp}
-            size="lg"
-            className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300"
-          >
-            <FileCheck className="mr-2 h-5 w-5" />
-            ¡Quiero que revisen mi caso!
-          </Button>
-          <p className="text-sm text-muted-foreground mt-3">
-            Consulta inicial sin costo por WhatsApp
-          </p>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>

@@ -143,7 +143,7 @@ const Index = () => {
 
                 {/* Video 1 - Formato vertical 9:16 */}
                 <Card className="overflow-hidden shadow-lg flex flex-col w-full max-w-[220px] mx-auto">
-                  <div className="h-64 aspect-[9/16]"> {/* CORREGIDO: h-64 en lugar de h-75 */}
+                  <div className="h-72 aspect-[9/16]"> {/* CORREGIDO: h-64 en lugar de h-75 */}
                     <video
                       className="w-full h-full object-cover"
                       autoPlay
@@ -165,7 +165,7 @@ const Index = () => {
 
                 {/* Video 2 - Formato vertical 9:16 */}
                 <Card className="overflow-hidden shadow-lg flex flex-col w-full max-w-[220px] mx-auto">
-                  <div className="h-64 aspect-[9/16]"> {/* CORREGIDO: h-64 en lugar de h-75 */}
+                  <div className="h-72 aspect-[9/16]"> {/* CORREGIDO: h-64 en lugar de h-75 */}
                     <video
                       className="w-full h-full object-cover"
                       autoPlay

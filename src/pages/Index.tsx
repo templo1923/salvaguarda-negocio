@@ -1,17 +1,3 @@
-Claro que sí. Entiendo perfectamente, a veces al copiar y pegar por partes se pueden perder llaves de cierre `}` o importaciones, lo que rompe el código.
-
-Aquí tienes el **archivo completo** `src/pages/Index.tsx`.
-
-Este código ya incluye:
-
-1.  Todas las **importaciones de íconos** necesarias (no falta ninguna).
-2.  La configuración de **SOLEX**.
-3.  Todas las **secciones nuevas** en el orden correcto (Hero, Nosotros, Servicios, Requisitos, Riesgos, 24/7, Espacio Público, Footer).
-4.  La estructura correcta de cierre de componentes.
-
-Simplemente copia **todo** el siguiente bloque y reemplaza **todo** el contenido de tu archivo `src/pages/Index.tsx`:
-
-```tsx
 import { 
   ShieldCheck, 
   FileText, 

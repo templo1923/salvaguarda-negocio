@@ -1,663 +1,589 @@
-// --- CAMBIO: Se añaden los íconos que faltaban ---
-import { Shield, FileCheck, Clock, Phone, Mail, MapPin, AlertTriangle, Search, FileSignature, ShieldCheck } from "lucide-react";
+Claro que sí. Entiendo perfectamente, a veces al copiar y pegar por partes se pueden perder llaves de cierre `}` o importaciones, lo que rompe el código.
+
+Aquí tienes el **archivo completo** `src/pages/Index.tsx`.
+
+Este código ya incluye:
+
+1.  Todas las **importaciones de íconos** necesarias (no falta ninguna).
+2.  La configuración de **SOLEX**.
+3.  Todas las **secciones nuevas** en el orden correcto (Hero, Nosotros, Servicios, Requisitos, Riesgos, 24/7, Espacio Público, Footer).
+4.  La estructura correcta de cierre de componentes.
+
+Simplemente copia **todo** el siguiente bloque y reemplaza **todo** el contenido de tu archivo `src/pages/Index.tsx`:
+
+```tsx
+import { 
+  ShieldCheck, 
+  FileText, 
+  Clock, 
+  Phone, 
+  MapPin, 
+  Mail, 
+  Scale, 
+  Building2, 
+  Users,
+  FileCheck,
+  AlertCircle,
+  Briefcase, 
+  Shield, 
+  MousePointerClick, 
+  Gavel, 
+  FileSearch,
+  CheckCircle2,
+  AlertTriangle,
+  Store,
+  Coffee,
+  PhoneCall,
+  ArrowRight
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Header from "@/components/Header";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import heroImage from "@/assets/hero-lawyer.jpg";
-import sealedImage from "@/assets/sealed-business.jpg";
 import attorneyPhoto from "@/assets/attorney-photo.jpg";
 
-// --- CAMBIO: Se actualizan los datos para generar confianza ---
-// ⚠️ CONFIGURACIÓN - ¡RECUERDA CAMBIAR EL WHATSAPP_NUMBER!
-const WHATSAPP_NUMBER = "573004085041"; // 👈 ¡REEMPLAZA ESTE NÚMERO!
-const ATTORNEY_NAME = "Dr. Mario Pérez";
-const YEARS_EXPERIENCE = "12";
-const ADDRESS = "Oficina 301, C.C. Parque Bello";
-const EMAIL = "dr.juanperez@abogadosbello.com";
+// --- CONFIGURACIÓN SOLEX ---
+const WHATSAPP_NUMBER = "573004085041"; 
+const BRAND_NAME = "SOLEX";
+const ADDRESS = "Oficina 301, C.C. Parque Bello"; // Ajustar según la dirección real si cambia
+const EMAIL = "contacto@solexempresarial.com"; // Ajustar correo real
 
 const Index = () => {
   const openWhatsApp = () => {
-    // --- CAMBIO: Mensaje de WhatsApp más simple y directo ---
+    // Mensaje profesional de inicio para WhatsApp
     const message = encodeURIComponent(
-      "Hola, necesito asesoría legal urgente para mi negocio en Bello."
+      "Hola SOLEX, requiero asesoría empresarial para mi establecimiento."
     );
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
     window.open(url, "_blank", "noopener,noreferrer");
   };
 
-  const requirements = [
-    {
-      title: "Registro de Información Tributaria (RIT)",
-      description: "Documento esencial para operar legalmente y cumplir con obligaciones fiscales.",
-    },
-    {
-      title: "Concepto Sanitario Vigente",
-      description: "Certificado de cumplimiento de normas sanitarias expedido por la Secretaría de Salud.",
-    },
-    {
-      title: "Concepto Técnico de Bomberos",
-      description: "Verificación de medidas de seguridad y prevención de incendios en tu establecimiento.",
-    },
-    {
-      title: "Certificado de Uso del Suelo",
-      description: "Confirma que tu local puede operar comercialmente en esa ubicación específica.",
-    },
-    {
-      title: "Matrícula Mercantil Vigente",
-      description: "Inscripción actualizada en la Cámara de Comercio de tu jurisdicción.",
-    },
-    {
-      title: "Comunicación a la Policía Nacional",
-      description: "Notificación obligatoria sobre la operación de tu establecimiento comercial.",
-    },
-    {
-      title: "Permisos Especiales",
-      description: "Según tu actividad: música, venta de licor, manipulación de alimentos, etc.",
-    },
-    {
-      title: "Pago de Industria y Comercio",
-      description: "Certificado al día del impuesto municipal por tu actividad comercial.",
-    },
-  ];
-
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background font-sans text-slate-800">
       {/* Header */}
       <Header onWhatsAppClick={openWhatsApp} />
 
-      {/* Hero Section */}
+      {/* --- SECCIÓN 1: HERO (ENCABEZADO PRINCIPAL) --- */}
       <section
         id="inicio"
-        className="relative min-h-[90vh] flex items-center justify-center overflow-hidden"
+        className="relative min-h-[85vh] flex items-center justify-center overflow-hidden"
       >
-        {/* Background Image with Overlay */}
+        {/* Imagen de fondo con superposición profesional */}
         <div className="absolute inset-0 z-0">
           <img
             src={heroImage}
-            alt="Asesoría legal comercial en Bello"
+            alt="Asesoría legal empresarial SOLEX"
             className="w-full h-full object-cover"
             loading="eager"
           />
-          {/* Gradiente corregido */}
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-purple-900/80 opacity-90"></div>
+          {/* Gradiente azul oscuro corporativo */}
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-blue-900/90 to-slate-900/80"></div>
         </div>
 
-        {/* Hero Content */}
-        <div className="container mx-auto px-4 relative z-10 text-center">
-          <div className="max-w-4xl mx-auto space-y-8">
-            {/* --- CAMBIO: H1 (Gancho) mejorado --- */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-              ¿Operativos De La Alcaldía En Bello?{" "}
-              <span className="text-yellow-400">¡Evita El Sello De 'CERRADO' En Tu Negocio!</span>
-            </h1>
-            {/* --- CAMBIO: Subtítulo mejorado --- */}
-            <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto">
-              Gestionamos los 8 requisitos legales por ti. Habla con un abogado especialista
-              <span className="font-bold"> ahora</span> por WhatsApp y opera con tranquilidad.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button
-                onClick={openWhatsApp}
-                className="bg-green-600 hover:bg-green-700 text-white font-bold rounded-md shadow-xl hover:shadow-2xl transition-all duration-300 text-base px-6 py-4 md:text-lg md:px-8"
-              >
-                <Phone className="mr-2 h-5 w-5" />
-                ¡QUIERO MI ASESORÍA AHORA!
-              </Button>
-            </div>
-            {/* --- CAMBIO: Texto CTA para bot --- */}
-            <p className="text-white/80 text-sm md:text-base">
-              <Clock className="inline mr-2" size={18} />
-              Respuesta inmediata 24/7 (Inicia con nuestro asistente virtual)
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Problem Section - El Riesgo */}
-      <section className="py-16 md:py-24 bg-gray-100">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Las Inspecciones Son Reales y las Sanciones También
-              </h2>
-              <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
-                La Alcaldía está realizando operativos sorpresa en el Municipio de Bello Antioquia.{" "}
-                <span className="font-semibold text-red-600">
-                  Un solo documento faltante puede significar el cierre temporal de tu establecimiento,
-                  multas significativas y la pérdida de tus ventas.
-                </span>
-              </p>
-            </div>
-
-            <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">
-              NO DEJES QUE ESTO TE PASE 
-            </h3>
-
-            {/* --- CAMBIO: Videos en formato vertical 9:16 y más compactos --- */}
-            <div className="flex flex-col items-center gap-6">
-              
-              {/* Contenedor de videos - formato vertical */}
-              <div className="flex flex-col md:flex-row gap-4 w-full max-w-2xl justify-center">
-
-                {/* Video 1 - Formato vertical 9:16 */}
-                <Card className="overflow-hidden shadow-lg flex flex-col w-full max-w-[220px] mx-auto">
-                  <div className="h-72 aspect-[9/16]"> {/* CORREGIDO: h-64 en lugar de h-75 */}
-                    <video
-                      className="w-full h-full object-cover"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      controls
-                      poster={sealedImage}
-                      preload="auto"
-                    >
-                      <source src="https://res.cloudinary.com/dz9ktwtyo/video/upload/v1762886362/operativo-niquia_vocctj.mp4" type="video/mp4" />
-                      Tu navegador no soporta el video.
-                    </video>
-                  </div>
-                  <div className="p-3 bg-white">
-                    <p className="font-semibold text-center text-gray-900 text-xs">OPERATIVOS REALES EN BELLO</p>
-                  </div>
-                </Card>
-
-                {/* Video 2 - Formato vertical 9:16 */}
-                <Card className="overflow-hidden shadow-lg flex flex-col w-full max-w-[220px] mx-auto">
-                  <div className="h-72 aspect-[9/16]"> {/* CORREGIDO: h-64 en lugar de h-75 */}
-                    <video
-                      className="w-full h-full object-cover"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      controls
-                      preload="auto"
-                    >
-                      <source src="https://res.cloudinary.com/dz9ktwtyo/video/upload/v1762900561/Dise%C3%B1o_sin_t%C3%ADtulo_jis8c5.mp4" type="video/mp4" />
-                      Tu navegador no soporta el video.
-                    </video>
-                  </div>
-                  <div className="p-3 bg-white">
-                    <p className="font-semibold text-center text-gray-900 text-xs">CIERRE DE ESTABLECIMIENTOS</p>
-                  </div>
-                </Card>
-              
-              </div>
-
-              {/* Tarjeta de Alerta mejorada */}
-              <div className="relative group w-full max-w-md">
-                <div className="absolute -inset-1 bg-gradient-to-r from-red-600 to-red-800 rounded-2xl blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
-                <Card className="p-6 flex flex-col justify-center bg-gradient-to-br from-red-50 to-red-100 border-2 border-red-300 relative backdrop-blur-sm">
-                  <div className="flex items-center justify-center mb-4">
-                    <div className="relative">
-                      <AlertTriangle className="text-red-600" size={42} />
-                      <div className="absolute inset-0 text-red-600 animate-ping opacity-20">
-                        <AlertTriangle size={42} />
-                      </div>
-                    </div>
-                  </div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-3 text-center">
-                    ⚠️ NO ARRIESGUES TU INVERSIÓN
-                  </h4>
-                  <p className="text-gray-700 mb-5 text-center text-sm leading-relaxed">
-                    Cientos de comerciantes en Bello y alrededores ya han enfrentado sanciones por su documentación incompleta.
-                    <span className="font-bold text-red-600 block mt-2">No seas el siguiente.</span>
-                  </p>
-                  <Button
-                    onClick={openWhatsApp}
-                    className="bg-red-600 hover:bg-red-700 text-white font-bold w-full py-3 text-base shadow-lg hover:shadow-xl transition-all duration-300"
-                  >
-                    <AlertTriangle className="mr-2 h-5 w-5" />
-                    ¡Necesito ayuda URGENTE!
-                  </Button>
-                </Card>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Solution Section - Los 8 Requisitos - MEJORADA */}
-      <section id="requisitos" className="py-16 md:py-24 bg-gradient-to-br from-white to-gray-100 relative overflow-hidden">
-        {/* Elementos decorativos de fondo */}
-        <div className="absolute top-0 left-0 w-72 h-72 bg-blue-100 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-red-100 rounded-full translate-x-1/3 translate-y-1/3 blur-3xl"></div>
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-6xl mx-auto">
+        {/* Contenido del Hero */}
+        <div className="container mx-auto px-4 relative z-10 text-center md:text-left">
+          <div className="max-w-4xl">
             
-            {/* Header mejorado */}
-            <div className="text-center mb-16">
-              <div className="inline-flex items-center gap-3 bg-blue-100 px-6 py-3 rounded-full mb-6 border border-blue-200">
-                <ShieldCheck className="text-blue-600 h-6 w-6" />
-                <span className="text-blue-600 font-semibold">Solución Integral</span>
-              </div>
-              <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-                Nosotros nos encargamos de{" "}
-                <span className="text-transparent bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text">
-                  TODO el papeleo
-                </span>
-              </h2>
-              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                No pierdas tiempo en filas ni te enredes con trámites. Nuestro equipo legal especializado 
-                <span className="font-semibold text-blue-600"> gestiona cada documento por ti</span> mientras tú te enfocas en tu negocio.
-              </p>
+            {/* Badge de autoridad */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/90 mb-6 backdrop-blur-sm">
+              <ShieldCheck className="w-4 h-4 text-blue-400" />
+              <span className="text-sm font-medium tracking-wide uppercase">Soluciones Empresariales Expertas</span>
             </div>
 
-            {/* Grid de requisitos interactivo */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6 mb-12">
-              {requirements.map((req, index) => (
-                <div
-                  key={index}
-                  className="group relative"
-                >
-                  {/* Efecto de fondo al hover */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 scale-105 group-hover:scale-100"></div>
-                  
-                  <Card className="p-6 relative overflow-hidden border-2 border-transparent group-hover:border-blue-200 transition-all duration-500 hover:shadow-2xl hover:translate-y-[-4px]">
-                    
-                    {/* Número con efecto */}
-                    <div className="absolute top-4 right-4 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
-                      <span className="text-sm font-bold text-blue-600 group-hover:text-white">{index + 1}</span>
-                    </div>
-                    
-                    {/* Ícono animado */}
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-400 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                      <FileCheck className="text-white h-6 w-6" />
-                    </div>
-                    
-                    {/* Contenido */}
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
-                      {req.title}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-                      {req.description}
-                    </p>
-                    
-                    {/* Línea decorativa inferior */}
-                    <div className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-blue-600 to-blue-400 group-hover:w-full transition-all duration-500 delay-200"></div>
-                  </Card>
-                </div>
-              ))}
-            </div>
+            {/* Título Principal */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+              Soluciones Empresariales para la <span className="text-blue-400">Continuidad de tu Actividad Económica</span>
+            </h1>
 
-            {/* Sección de beneficios adicionales */}
-            <div className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-2xl p-8 border border-blue-200">
-              <div className="grid md:grid-cols-3 gap-8 text-center">
-                <div className="space-y-3">
-                  <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-2">
-                    <Clock className="text-blue-600 h-8 w-8" />
-                  </div>
-                  <h4 className="font-bold text-gray-900 text-lg">Ahorra Tiempo</h4>
-                  <p className="text-gray-600 text-sm">
-                    Evita filas interminables y procesos burocráticos
-                  </p>
-                </div>
-                
-                <div className="space-y-3">
-                  <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-2">
-                    <Shield className="text-blue-600 h-8 w-8" />
-                  </div>
-                  <h4 className="font-bold text-gray-900 text-lg">100% Legal</h4>
-                  <p className="text-gray-600 text-sm">
-                    Todos los documentos según normativa vigente
-                  </p>
-                </div>
-                
-                <div className="space-y-3">
-                  <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-2">
-                    <FileSignature className="text-blue-600 h-8 w-8" />
-                  </div>
-                  <h4 className="font-bold text-gray-900 text-lg">Seguimiento Total</h4>
-                  <p className="text-gray-600 text-sm">
-                    Te mantenemos informado en cada etapa del proceso
-                  </p>
-                </div>
-              </div>
-            </div>
+            {/* Subtítulo */}
+            <p className="text-lg md:text-xl text-slate-200 max-w-2xl mb-10 leading-relaxed font-light">
+              Asesoría jurídica, gestión documental y acompañamiento inmediato para que tu establecimiento opere en orden y con plena tranquilidad.
+            </p>
 
-            {/* CTA adicional agregado */}
-            <div className="text-center mt-8">
+            {/* Botones de Acción (CTAs) */}
+            <div className="flex flex-col sm:flex-row gap-4 items-center md:items-start">
               <Button
                 onClick={openWhatsApp}
                 size="lg"
-                className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300"
+                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md shadow-lg hover:shadow-blue-900/20 transition-all duration-300 text-base px-8 py-6 h-auto w-full sm:w-auto"
               >
-                <FileCheck className="mr-2 h-5 w-5" />
-                Quiero que gestionen mis documentos
+                <Phone className="mr-2 h-5 w-5" />
+                Solicitar Asesoría
               </Button>
+              
+              <Button
+                onClick={() => document.getElementById('servicios')?.scrollIntoView({ behavior: 'smooth' })}
+                variant="outline"
+                size="lg"
+                className="bg-transparent border-white/30 text-white hover:bg-white/10 hover:text-white font-medium rounded-md text-base px-8 py-6 h-auto w-full sm:w-auto backdrop-blur-sm"
+              >
+                Conocer Servicios
+              </Button>
+            </div>
+
+            {/* Fila de confianza */}
+            <div className="mt-12 pt-8 border-t border-white/10 flex flex-wrap justify-center md:justify-start gap-8 text-slate-300 text-sm">
+              <div className="flex items-center gap-2">
+                <Scale className="text-blue-400 h-5 w-5" />
+                <span>Cumplimiento Normativo</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Building2 className="text-blue-400 h-5 w-5" />
+                <span>Organización Empresarial</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Clock className="text-blue-400 h-5 w-5" />
+                <span>Atención Inmediata</span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* How It Works Section - MEJORADA */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
-        {/* Elementos decorativos de fondo */}
-        <div className="absolute top-10 left-10 w-64 h-64 bg-blue-100 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-10 right-10 w-80 h-80 bg-red-100 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-100 rounded-full blur-3xl"></div>
+      {/* --- SECCIÓN 2: PRESENTACIÓN INSTITUCIONAL --- */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+                Respaldo Profesional y Claridad Jurídica
+              </h2>
+              <div className="w-20 h-1 bg-blue-600 mx-auto rounded-full mb-8"></div>
+              
+              <p className="text-lg text-slate-700 leading-relaxed mb-6">
+                <span className="font-bold text-blue-900">SOLEX</span> es una firma especializada en soluciones empresariales orientadas al cumplimiento riguroso de los requisitos exigidos para el funcionamiento de establecimientos abiertos al público.
+              </p>
+              
+              <p className="text-lg text-slate-700 leading-relaxed">
+                Nuestro propósito es fortalecer y proteger la operación del comerciante mediante asesoría jurídica confiable, acompañamiento empresarial permanente, gestión documental completa y una atención inmediata ante situaciones que requieren respuesta técnica en tiempo real.
+              </p>
+            </div>
+
+            {/* Tarjeta destacada de valores */}
+            <Card className="bg-slate-50 border-none shadow-inner p-8 md:p-10 rounded-2xl">
+              <div className="flex flex-col md:flex-row items-center gap-6">
+                <div className="bg-white p-4 rounded-full shadow-sm shrink-0">
+                  <Users className="h-8 w-8 text-blue-600" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-2 text-center md:text-left">
+                    Nuestro Compromiso
+                  </h3>
+                  <p className="text-slate-600 text-center md:text-left">
+                    Actuamos con total respeto por las autoridades y las entidades de control, brindando al comerciante claridad, respaldo profesional y una ruta de acción segura y responsable.
+                  </p>
+                </div>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* --- SECCIÓN 3: QUÉ HACEMOS (SERVICIOS) --- */}
+      <section id="servicios" className="py-20 bg-slate-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <span className="text-blue-600 font-semibold tracking-wider uppercase text-sm">Nuestra Propuesta de Valor</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2 mb-6">
+              Soluciones Integrales para tu Negocio
+            </h2>
+            <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+              En <span className="font-semibold text-blue-800">SOLEX</span> acompañamos al comerciante en todas las etapas de su actividad económica, integrando asesoría jurídica y gestión estratégica.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* Servicio 1 */}
+            <Card className="p-8 hover:shadow-xl transition-all duration-300 border-t-4 border-t-blue-600 bg-white group">
+              <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors duration-300">
+                <Briefcase className="text-blue-600 h-7 w-7 group-hover:text-white transition-colors" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Asesoría Jurídica</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Orientación empresarial completa para operar en estricto cumplimiento de la normativa vigente.
+              </p>
+            </Card>
+
+            {/* Servicio 2 */}
+            <Card className="p-8 hover:shadow-xl transition-all duration-300 border-t-4 border-t-blue-600 bg-white group">
+              <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors duration-300">
+                <FileText className="text-blue-600 h-7 w-7 group-hover:text-white transition-colors" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Gestión Documental</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Organización, revisión y auditoría de toda la documentación requerida por las autoridades.
+              </p>
+            </Card>
+
+            {/* Servicio 3 */}
+            <Card className="p-8 hover:shadow-xl transition-all duration-300 border-t-4 border-t-blue-600 bg-white group">
+              <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors duration-300">
+                <Shield className="text-blue-600 h-7 w-7 group-hover:text-white transition-colors" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Blindaje Preventivo</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Acompañamiento estratégico para reducir riesgos legales en cualquier procedimiento oficial.
+              </p>
+            </Card>
+
+            {/* Servicio 4 */}
+            <Card className="p-8 hover:shadow-xl transition-all duration-300 border-t-4 border-t-blue-600 bg-white group">
+              <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors duration-300">
+                <MousePointerClick className="text-blue-600 h-7 w-7 group-hover:text-white transition-colors" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Asistencia Inmediata</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Respuesta técnica en tiempo real ante situaciones urgentes o actuaciones administrativas.
+              </p>
+            </Card>
+
+            {/* Servicio 5 */}
+            <Card className="p-8 hover:shadow-xl transition-all duration-300 border-t-4 border-t-blue-600 bg-white group">
+              <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors duration-300">
+                <Gavel className="text-blue-600 h-7 w-7 group-hover:text-white transition-colors" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Defensa Técnica</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Preparación profesional de descargos, recursos y sustentaciones ante entidades públicas.
+              </p>
+            </Card>
+
+            {/* Servicio 6 */}
+            <Card className="p-8 hover:shadow-xl transition-all duration-300 border-t-4 border-t-blue-600 bg-white group">
+              <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors duration-300">
+                <FileSearch className="text-blue-600 h-7 w-7 group-hover:text-white transition-colors" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Seguimiento a Radicados</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Vigilancia estricta a solicitudes presentadas para garantizar respuesta en los plazos legales.
+              </p>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* --- SECCIÓN 4: REQUISITOS LEGALES --- */}
+      <section id="requisitos" className="py-20 bg-white relative overflow-hidden">
+        {/* Decoración sutil de fondo */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-50 rounded-full translate-x-1/2 -translate-y-1/2 opacity-50"></div>
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-6xl mx-auto">
-            
-            {/* Header mejorado */}
-            <div className="text-center mb-16">
-              <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full mb-6 border border-blue-200 shadow-lg">
-                <Clock className="text-blue-600 h-5 w-5" />
-                <span className="text-blue-600 font-semibold">Proceso Rápido y Simple</span>
-              </div>
-              <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-                Empieza en{" "}
-                <span className="text-transparent bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text">
-                  3 Pasos Simples
-                </span>
-              </h2>
-              <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto">
-                Deja la burocracia en nuestras manos y enfócate en lo que realmente importa: tu negocio
-              </p>
-            </div>
-
-            {/* Timeline interactivo */}
-            <div className="relative">
-              {/* Línea de tiempo decorativa */}
-              <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-300 transform -translate-y-1/2 z-0"></div>
-              <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-blue-200 blur-sm transform -translate-y-1/2 z-0"></div>
+            <div className="grid lg:grid-cols-2 gap-16 items-start">
               
-              <div className="grid lg:grid-cols-3 gap-8 lg:gap-4 relative z-10">
-                
-                {/* Paso 1 */}
-                <div className="group relative">
-                  <div className="flex flex-col items-center text-center">
-                    {/* Círculo del paso con animación */}
-                    <div className="relative mb-6">
-                      <div className="absolute inset-0 bg-blue-200 rounded-full animate-ping opacity-75"></div>
-                      <div className="relative w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg border-4 border-white group-hover:scale-110 transition-transform duration-300">
-                        1
-                      </div>
-                      {/* Ícono flotante */}
-                      <div className="absolute -top-2 -right-2 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg border border-blue-200 group-hover:rotate-12 transition-transform duration-300">
-                        <Search className="text-blue-600 h-5 w-5" />
-                      </div>
-                    </div>
-                    
-                    {/* Card del paso */}
-                    <Card className="p-8 bg-white/80 backdrop-blur-sm border-2 border-transparent group-hover:border-blue-200 group-hover:shadow-2xl transition-all duration-500 hover:translate-y-[-8px] relative overflow-hidden">
-                      {/* Efecto de brillo al hover */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                      
-                      <h3 className="text-2xl font-bold text-gray-900 mb-4 relative z-10">
-                        Contáctanos por WhatsApp
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed relative z-10">
-                        Haz clic en cualquier botón de WhatsApp en esta página. 
-                        <span className="block mt-2 font-semibold text-gray-900">
-                          Respuesta inmediata 24/7 - Inicia con nuestro asistente virtual
-                        </span>
-                      </p>
-                      
-                      {/* Badge de tiempo */}
-                      <div className="absolute top-4 right-4 bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-semibold">
-                        <Clock className="inline h-3 w-3 mr-1" />
-                        2 min
-                      </div>
-                    </Card>
-                  </div>
-                </div>
+              {/* Columna Izquierda */}
+              <div>
+                <h2 className="text-3xl font-bold text-slate-900 mb-6">
+                  Requisitos para el Ejercicio de Actividades Económicas
+                </h2>
+                <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+                  Todo establecimiento debe cumplir con condiciones específicas para su correcto funcionamiento. SOLEX orienta y gestiona estos requisitos para que tu negocio opere con seguridad jurídica.
+                </p>
 
-                {/* Paso 2 */}
-                <div className="group relative">
-                  <div className="flex flex-col items-center text-center">
-                    {/* Círculo del paso */}
-                    <div className="relative mb-6">
-                      <div className="absolute inset-0 bg-blue-200 rounded-full opacity-0 group-hover:animate-ping"></div>
-                      <div className="relative w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg border-4 border-white group-hover:scale-110 transition-transform duration-300">
-                        2
-                      </div>
-                      {/* Ícono flotante */}
-                      <div className="absolute -top-2 -right-2 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg border border-blue-200 group-hover:rotate-12 transition-transform duration-300">
-                        <FileSignature className="text-blue-600 h-5 w-5" />
-                      </div>
-                    </div>
-                    
-                    {/* Card del paso */}
-                    <Card className="p-8 bg-white/80 backdrop-blur-sm border-2 border-transparent group-hover:border-blue-200 group-hover:shadow-2xl transition-all duration-500 hover:translate-y-[-8px] relative overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                      
-                      <h3 className="text-2xl font-bold text-gray-900 mb-4 relative z-10">
-                        Auditamos tu Caso
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed relative z-10">
-                        Revisamos gratuitamente qué documentos tienes y cuáles faltan. 
-                        <span className="block mt-2 font-semibold text-gray-900">
-                          Te damos un diagnóstico claro y un plan de acción
-                        </span>
-                      </p>
-                      
-                      {/* Badge de tiempo */}
-                      <div className="absolute top-4 right-4 bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-semibold">
-                        <Clock className="inline h-3 w-3 mr-1" />
-                        24-48h
-                      </div>
-                    </Card>
-                  </div>
-                </div>
-
-                {/* Paso 3 */}
-                <div className="group relative">
-                  <div className="flex flex-col items-center text-center">
-                    {/* Círculo del paso */}
-                    <div className="relative mb-6">
-                      <div className="absolute inset-0 bg-blue-200 rounded-full opacity-0 group-hover:animate-ping"></div>
-                      <div className="relative w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg border-4 border-white group-hover:scale-110 transition-transform duration-300">
-                        3
-                      </div>
-                      {/* Ícono flotante */}
-                      <div className="absolute -top-2 -right-2 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg border border-blue-200 group-hover:rotate-12 transition-transform duration-300">
-                        <ShieldCheck className="text-blue-600 h-5 w-5" />
-                      </div>
-                    </div>
-                    
-                    {/* Card del paso */}
-                    <Card className="p-8 bg-white/80 backdrop-blur-sm border-2 border-transparent group-hover:border-blue-200 group-hover:shadow-2xl transition-all duration-500 hover:translate-y-[-8px] relative overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                      
-                      <h3 className="text-2xl font-bold text-gray-900 mb-4 relative z-10">
-                        Gestionamos y Entregamos
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed relative z-10">
-                        Nos movemos rápido para obtener tus permisos. 
-                        <span className="block mt-2 font-semibold text-gray-900">
-                          Operas con todos los documentos legales y 100% protegido
-                        </span>
-                      </p>
-                      
-                      {/* Badge de tiempo */}
-                      <div className="absolute top-4 right-4 bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-semibold">
-                        <Clock className="inline h-3 w-3 mr-1" />
-                        5-7 días
-                      </div>
-                    </Card>
-                  </div>
+                <div className="bg-slate-50 rounded-2xl p-8 border border-slate-100">
+                  <h3 className="text-xl font-bold text-blue-800 mb-6 flex items-center gap-2">
+                    <span className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-sm font-bold">1</span>
+                    Requisitos Previos al Inicio
+                  </h3>
+                  <ul className="space-y-4">
+                    {[
+                      "Definición adecuada de destinación y uso del suelo.",
+                      "Matrícula mercantil vigente.",
+                      "Comunicación formal de apertura ante autoridad.",
+                      "Permisos especiales según actividad."
+                    ].map((item, index) => (
+                      <li key={index} className="flex items-start gap-3">
+                        <CheckCircle2 className="text-green-600 h-5 w-5 shrink-0 mt-0.5" />
+                        <span className="text-slate-700">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
-            </div>
 
-            {/* CTA mejorado */}
-            <div className="text-center mt-16">
-              <div className="bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-200 rounded-2xl p-8 max-w-2xl mx-auto backdrop-blur-sm">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  ¿Listo para empezar?
-                </h3>
-                <p className="text-gray-700 mb-6 max-w-md mx-auto">
-                  Da el primer paso hoy mismo y protege tu inversión contra operativos inesperados
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                  <Button
+              {/* Columna Derecha */}
+              <div className="space-y-8">
+                 <div className="bg-slate-50 rounded-2xl p-8 border border-slate-100 lg:mt-12">
+                  <h3 className="text-xl font-bold text-blue-800 mb-6 flex items-center gap-2">
+                    <span className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-sm font-bold">2</span>
+                    Requisitos Permanentes de Operación
+                  </h3>
+                  <ul className="space-y-4">
+                    {[
+                      "Condiciones de seguridad, salubridad y ambiente.",
+                      "Cumplimiento estricto de horarios autorizados.",
+                      "Coincidencia entre actividad ejercida y objeto registrado.",
+                      "Certificados, conceptos y comprobantes al día."
+                    ].map((item, index) => (
+                      <li key={index} className="flex items-start gap-3">
+                        <CheckCircle2 className="text-green-600 h-5 w-5 shrink-0 mt-0.5" />
+                        <span className="text-slate-700">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="bg-blue-900 text-white rounded-2xl p-8 text-center shadow-lg">
+                  <h4 className="text-xl font-bold mb-4">¿Tu documentación está al día?</h4>
+                  <p className="text-blue-100 mb-6">
+                    SOLEX te acompaña para que cada uno de estos aspectos se encuentre completo, actualizado y organizado.
+                  </p>
+                  <Button 
                     onClick={openWhatsApp}
-                    size="lg"
-                    className="bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300 px-8 py-3 text-base"
+                    className="bg-white text-blue-900 hover:bg-blue-50 font-bold w-full py-6 text-lg"
                   >
-                    <Phone className="mr-2 h-5 w-5" />
-                    Iniciar por WhatsApp
-                  </Button>
-                  <Button
-                    onClick={openWhatsApp}
-                    variant="outline"
-                    size="lg"
-                    className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300"
-                  >
-                    <Clock className="mr-2 h-5 w-5" />
-                    Consulta sin costo
+                    Consultar con un Especialista
                   </Button>
                 </div>
-                <p className="text-sm text-gray-600 mt-4">
-                  💬 Resolvemos tus dudas en menos de 5 minutos
-                </p>
               </div>
+
             </div>
           </div>
         </div>
       </section>
 
-      {/* About Section - MEJORADA */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-white to-gray-100">
+      {/* --- SECCIÓN 5: GESTIÓN DE RIESGOS --- */}
+      <section className="py-20 bg-slate-50">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
-              <div className="inline-flex items-center gap-2 bg-blue-100 px-6 py-3 rounded-full mb-6 border border-blue-200">
-                <Shield className="text-blue-600 h-5 w-5" />
-                <span className="text-blue-600 font-semibold">Experiencia Comprobada</span>
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Asesoría Especializada en Derecho Comercial
+              <h2 className="text-3xl font-bold text-slate-900 mb-4">
+                Gestión Preventiva de Riesgos
               </h2>
+              <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+                Identificamos y corregimos situaciones que podrían comprometer la continuidad de tu operación. SOLEX ofrece orientación profesional para responder de forma correcta y segura.
+              </p>
             </div>
 
+            <div className="grid md:grid-cols-2 gap-8">
+              <Card className="p-8 bg-white border-l-4 border-l-amber-500 shadow-md">
+                <div className="flex items-start gap-4 mb-4">
+                  <AlertTriangle className="text-amber-500 h-8 w-8 shrink-0" />
+                  <h3 className="text-xl font-bold text-slate-900">Situaciones de Atención</h3>
+                </div>
+                <ul className="space-y-3 text-slate-600">
+                  <li className="flex items-start gap-2">
+                    <span className="text-amber-500 mt-1">•</span>
+                    Desarrollo de actividades sin requisitos vigentes.
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-amber-500 mt-1">•</span>
+                    Ausencia de documentación física organizada.
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-amber-500 mt-1">•</span>
+                    Diferencias entre actividad real y matrícula.
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-amber-500 mt-1">•</span>
+                    Uso no autorizado del espacio público.
+                  </li>
+                </ul>
+              </Card>
+
+              <Card className="p-8 bg-white border-l-4 border-l-blue-600 shadow-md">
+                <div className="flex items-start gap-4 mb-4">
+                  <ShieldCheck className="text-blue-600 h-8 w-8 shrink-0" />
+                  <h3 className="text-xl font-bold text-slate-900">El Acompañamiento SOLEX</h3>
+                </div>
+                <p className="text-slate-600 mb-4">
+                  Las autoridades realizan verificaciones constantes para garantizar la convivencia. Nosotros te acompañamos para:
+                </p>
+                <ul className="space-y-3 text-slate-600">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="text-blue-600 h-5 w-5 shrink-0" />
+                    Cumplir con todas las exigencias aplicables.
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="text-blue-600 h-5 w-5 shrink-0" />
+                    Mantener tu carpeta legal lista para revisión.
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="text-blue-600 h-5 w-5 shrink-0" />
+                    Afrontar procedimientos con claridad y confianza.
+                  </li>
+                </ul>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- SECCIÓN 6: ASISTENCIA 24/7 --- */}
+      <section className="py-20 bg-blue-900 text-white relative overflow-hidden">
+        {/* Fondo decorativo */}
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-800 text-blue-200 text-sm font-medium mb-6 border border-blue-700">
+                <Clock className="w-4 h-4" />
+                <span>Disponibilidad Permanente</span>
+              </div>
+              <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+                Asistencia Inmediata <span className="text-blue-400">24/7</span>
+              </h2>
+              <p className="text-lg text-blue-100 mb-8 leading-relaxed">
+                Disponemos de una línea de atención inmediata para orientarte en tiempo real durante procedimientos oficiales o situaciones urgentes.
+              </p>
+              
+              <div className="space-y-4 mb-8">
+                <div className="flex items-center gap-4">
+                  <div className="bg-blue-800 p-3 rounded-lg">
+                    <PhoneCall className="text-blue-400 h-6 w-6" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-white">Soporte en Tiempo Real</h4>
+                    <p className="text-blue-200 text-sm">Te indicamos cómo responder y actuar al instante.</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="bg-blue-800 p-3 rounded-lg">
+                    <FileText className="text-blue-400 h-6 w-6" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-white">Garantía Documental</h4>
+                    <p className="text-blue-200 text-sm">Aseguramos que las actas reflejen fielmente los hechos.</p>
+                  </div>
+                </div>
+              </div>
+
+              <Button
+                onClick={openWhatsApp}
+                size="lg"
+                className="bg-green-500 hover:bg-green-600 text-white font-bold border-none shadow-lg shadow-green-900/20 px-8 py-6 h-auto w-full sm:w-auto"
+              >
+                <Phone className="mr-2 h-5 w-5" />
+                Contactar Línea de Urgencias
+              </Button>
+            </div>
+
+            <div className="relative">
+              <div className="absolute -inset-4 bg-blue-500/20 rounded-full blur-3xl"></div>
+              <Card className="relative bg-white/5 backdrop-blur-md border-white/10 p-8 text-white">
+                <h3 className="text-xl font-bold mb-6 border-b border-white/10 pb-4">
+                  Alcance del Acompañamiento
+                </h3>
+                <ul className="space-y-4">
+                  {[
+                    "Entendimiento claro de la situación en curso.",
+                    "Manejo correcto de interrogantes de la autoridad.",
+                    "Elaboración técnica de descargos en el acta.",
+                    "Preparación de base para recursos legales."
+                  ].map((item, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <CheckCircle2 className="text-blue-400 h-5 w-5 shrink-0 mt-1" />
+                      <span className="text-blue-50">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- SECCIÓN 7: ESPACIO PÚBLICO --- */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="bg-slate-50 rounded-3xl p-8 md:p-12 border border-slate-100">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="order-2 md:order-1">
-                <div className="relative group">
-                  <div className="absolute -inset-4 bg-gradient-to-r from-blue-100 to-blue-50 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <img
-                    src={attorneyPhoto}
-                    alt={ATTORNEY_NAME}
-                    className="w-full max-w-md mx-auto rounded-2xl shadow-xl relative z-10 group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
+                <div className="grid grid-cols-2 gap-4">
+                  <Card className="p-6 bg-white shadow-sm text-center">
+                    <Store className="mx-auto h-10 w-10 text-blue-600 mb-3" />
+                    <h4 className="font-bold text-slate-900">Uso Comercial</h4>
+                  </Card>
+                  <Card className="p-6 bg-white shadow-sm text-center">
+                    <Coffee className="mx-auto h-10 w-10 text-blue-600 mb-3" />
+                    <h4 className="font-bold text-slate-900">Mesas y Sillas</h4>
+                  </Card>
                 </div>
               </div>
-
-              <div className="order-1 md:order-2 space-y-6">
-                <h3 className="text-2xl font-bold text-gray-900">
-                  Hola, soy <span className="text-blue-600">{ATTORNEY_NAME}</span>
-                </h3>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  Especialista en derecho comercial y administrativo con más de{" "}
-                  <span className="font-bold text-blue-600">{YEARS_EXPERIENCE} años</span> de experiencia. 
-                  Entiendo perfectamente las dificultades que enfrentan los comerciantes en Bello.
+              
+              <div className="order-1 md:order-2">
+                <h2 className="text-3xl font-bold text-slate-900 mb-4">
+                  Aprovechamiento Económico del Espacio Público
+                </h2>
+                <p className="text-slate-600 mb-6 leading-relaxed">
+                  ¿Sabías que puedes solicitar autorización para utilizar de manera regulada el área frente a tu establecimiento? El municipio de Bello cuenta con un programa específico para ello.
                 </p>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  Mi misión es simplificar los procesos legales para que tú puedas enfocarte en hacer crecer tu negocio.
+                <p className="text-slate-600 mb-8 leading-relaxed">
+                  <span className="font-bold text-blue-800">SOLEX</span> te asesora en la correcta diligencia de este trámite y en la preparación de los documentos, asegurando el cumplimiento de condiciones y evitando sanciones.
                 </p>
-
-                <div className="grid grid-cols-2 gap-4 pt-4">
-                  <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg">
-                    <ShieldCheck className="text-blue-600 h-6 w-6" />
-                    <span className="font-semibold text-gray-900">Especialista Certificado</span>
-                  </div>
-                  <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg">
-                    <FileCheck className="text-blue-600 h-6 w-6" />
-                    <span className="font-semibold text-gray-900">+500 Casos Exitosos</span>
-                  </div>
-                </div>
+                <Button 
+                  onClick={openWhatsApp}
+                  variant="outline" 
+                  className="border-blue-600 text-blue-600 hover:bg-blue-50"
+                >
+                  Consultar sobre este trámite <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Final CTA Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-blue-900 to-purple-900 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto space-y-8">
-            <h2 className="text-3xl md:text-5xl font-bold">
-              ¿Vas a esperar a que lleguen a tu local?
-            </h2>
-            <p className="text-xl md:text-2xl text-white/90">
-              No arriesgues tu inversión y el trabajo de tantos años. Asegura tu tranquilidad hoy
-              mismo.
-            </p>
-            <Button
-              onClick={openWhatsApp}
-              className="bg-green-600 hover:bg-green-700 text-white font-bold rounded-md shadow-xl hover:shadow-2xl transition-all duration-300 text-base px-6 py-4 md:text-lg md:px-8"
-            >
-              <Phone className="mr-2 h-5 w-5" />
-              HABLAR CON EL ABOGADO AHORA
-            </Button>
-            <p className="text-white/80 text-sm md:text-base">
-              <Clock className="inline mr-2" size={18} />
-              Respuesta inmediata 24/7 (Inicia con nuestro asistente virtual)
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer id="contacto" className="bg-blue-900 text-white py-12">
+      {/* --- SECCIÓN 8: CONTACTO Y FOOTER --- */}
+      <footer id="contacto" className="bg-slate-900 text-slate-300 pt-20 pb-10">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-12 mb-16">
+            {/* Columna 1: Marca */}
             <div>
-              <h3 className="text-xl font-bold mb-4">Asesoría Legal Comercial</h3>
-              <p className="text-blue-200">
-                Evitamos el cierre de tu negocio en Bello y zonas cercanas
+              <h3 className="text-2xl font-bold text-white mb-6 tracking-tight">{BRAND_NAME}</h3>
+              <p className="mb-6 text-slate-400 leading-relaxed">
+                Soluciones Empresariales con Respaldo Jurídico Permanente. Acompañamiento profesional para fortalecer la continuidad de tu actividad económica.
               </p>
             </div>
 
+            {/* Columna 2: Contacto Directo */}
             <div>
-              <h3 className="text-xl font-bold mb-4">Contacto</h3>
-              <div className="space-y-2 text-blue-200">
-                <p className="flex items-center gap-2">
-                  <MapPin size={18} />
-                  {ADDRESS}
-                </p>
-                <p className="flex items-center gap-2">
-                  <Phone size={18} />
-                  +57 3XX XXX XXXX
-                </p>
-                <p className="flex items-center gap-2">
-                  <Mail size={18} />
-                  {EMAIL}
-                </p>
-              </div>
+              <h4 className="text-lg font-bold text-white mb-6">Canales de Atención</h4>
+              <ul className="space-y-4">
+                <li className="flex items-center gap-3">
+                  <MapPin className="text-blue-500 h-5 w-5" />
+                  <span>{ADDRESS}</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <Mail className="text-blue-500 h-5 w-5" />
+                  <span>{EMAIL}</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <Clock className="text-blue-500 h-5 w-5" />
+                  <span>Atención Urgente 24 Horas</span>
+                </li>
+              </ul>
             </div>
 
+            {/* Columna 3: CTA Final */}
             <div>
-              <h3 className="text-xl font-bold mb-4">Horario</h3>
-              <p className="text-blue-200">
-                Lunes a Domingo
-                <br />
-                8:00 AM - 8:00 PM
-                <br />
-                <span className="text-sm">Atención de emergencias 24/7</span>
+              <h4 className="text-lg font-bold text-white mb-6">Estamos para ayudarte</h4>
+              <p className="mb-6 text-slate-400 text-sm">
+                Recibe orientación inmediata y profesional sobre cualquier aspecto de tu establecimiento.
               </p>
+              <Button
+                onClick={openWhatsApp}
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-6"
+              >
+                Hablar con un Consultor
+              </Button>
             </div>
           </div>
 
-          <div className="border-t border-blue-700 mt-8 pt-8 text-center text-sm text-blue-300">
-            <p>La información aquí provista no sustituye asesoría personalizada.</p>
-            <p className="mt-2">
-              © {new Date().getFullYear()} {ATTORNEY_NAME}. Todos los derechos reservados.
-            </p>
+          <div className="border-t border-slate-800 pt-8 text-center text-sm text-slate-500">
+            <p>© {new Date().getFullYear()} {BRAND_NAME}. Todos los derechos reservados.</p>
+            <p className="mt-2">Especialistas en Derecho Comercial y Administrativo.</p>
           </div>
         </div>
       </footer>
 
-      {/* Floating WhatsApp Button */}
+      {/* Botón Flotante */}
       <WhatsAppFloat onClick={openWhatsApp} />
     </div>
   );
 };
 
 export default Index;
+```

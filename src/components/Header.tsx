@@ -23,9 +23,13 @@ const Header = ({ onWhatsAppClick }: HeaderProps) => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <div className="flex items-center">
+            {/* Puedes mantener un ícono si quieres, o solo texto */}
             <span className="text-xl md:text-2xl font-bold text-primary">
-              Asesoría Legal Comercial
+              SOLEX
             </span>
+            <span className="hidden md:inline-block text-sm text-muted-foreground border-l pl-2 ml-2 border-gray-300">
+              Soluciones Empresariales
+              </span>
           </div>
 
           {/* Desktop Navigation */}

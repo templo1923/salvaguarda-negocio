@@ -6,11 +6,10 @@ import WhatsAppFloat from "@/components/WhatsAppFloat";
 // Importaciones de imágenes
 import meetingImage from "@/assets/hero-lawyer.jpg";
 import complianceImage from "@/assets/inspection.jpg"; 
-//import attorneyPhoto from "@/assets/attorney-photo.jpg"; 
-import attorneyPhoto from "@/assets/inspection.jpg"
+import attorneyPhoto from "@/assets/attorney-photo.jpg"; 
 
 // --- CONFIGURACIÓN SOLEX ---
-const WHATSAPP_NUMBER = "573004085041";
+const WHATSAPP_NUMBER = "573226059594";
 const COMPANY_NAME = "SOLEX";
 const ADDRESS = "Domicilio Legal en Bello, Antioquia"; // Refuerza la naturaleza legal/administrativa
 const EMAIL = "contacto@solexconsultoria.com";
@@ -253,7 +252,7 @@ const Index = () => {
             {/* Contenido Institucional */}
             <div className="space-y-8 lg:order-2 text-center lg:text-left">
               <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
-                Especialistas en Continuidad Empresarial
+                {COMPANY_NAME}: Especialistas en Continuidad Empresarial
               </h2>
               <div className="w-20 h-1 bg-blue-600 mx-auto lg:mx-0 rounded-full"></div>
 
